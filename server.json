@@ -1,0 +1,13 @@
+{
+  "staging":
+    {
+      "serverURL":"http://www.staging",
+      "env":"staging"
+    }
+  ,
+  "production":
+    {
+      "serverURL":"http://www.production",
+      "env":"production"
+    }
+}

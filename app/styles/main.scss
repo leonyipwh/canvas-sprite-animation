@@ -11,6 +11,11 @@ body {
   display:none;
 }
 
+#svgContainer
+{
+  margin-top:-5px;
+}
+
 #svg
 {
   height:129px;
@@ -44,7 +49,7 @@ body {
 
 #gameCanvas
 {
-  height:150px;
+  height:145px;
   width:100%;
   background-color:black;
   -moz-transform: scaleY(1);

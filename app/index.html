@@ -19,68 +19,75 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div id="layers">
-      <div id="back">
-        <div id="">
-          <img id="slidein" src="images/stage.jpg" alt="" />
+
+    <div id="photo">
+      <div id="canvasContainer"></div>
+      <canvas id="resultCanvas2"></canvas>
+      <input id="fileUpload" type="file" class="upload" accept="image/*"/>
+    </div>
+
+    <div id="preivew">
+      <div id="layers">
+        <div id="back">
+          <div id="">
+            <img id="slidein" src="images/stage.jpg" alt="" />
+          </div>
         </div>
-      </div>
 
-      <div id="middle">
+        <div id="middle">
 
-        <canvas id="canvas"></canvas>
+          <canvas id="canvas"></canvas>
 
-        <div id="svgContainer">
-          <svg id="svg">
-            <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
-              <animate
-                xlink:href="#orange_circle"
-                attributeName="cx"
-                from="0"
+          <div id="svgContainer">
+            <svg id="svg">
+              <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
+                <animate
+                  xlink:href="#orange_circle"
+                  attributeName="cx"
+                  from="0"
+                  to="100%"
+                  begin="0s"
+                  dur="10s"
+                  repeatCount="indefinite">
+                </animate>
+              </circle> -->
+
+              <text id="copyText" x="10" y="70%" fill="white" contenteditable="true">
+                I love SVG!
+        				<animate
+                attributeName="x"
+                from="0%"
                 to="100%"
                 begin="0s"
-                dur="10s"
+                dur="4s"
                 repeatCount="indefinite">
-              </animate>
-            </circle> -->
-
-            <text id="copyText" x="10" y="70%" fill="white" contenteditable="true">
-              I love SVG!
-      				<animate
-              attributeName="x"
-              from="0%"
-              to="100%"
-              begin="0s"
-              dur="4s"
-              repeatCount="indefinite">
-              </animate>
-      			</text>
-          </svg>
+                </animate>
+        			</text>
+            </svg>
+          </div>
         </div>
+
+        <div id="front">
+
+        </div>
+  <!--  <br/>
+        <br/>
+        <br/> -->
+
+        <!-- <input id="inputBox" type="text" name="some_name" value=""/>
+        <button id="" onClick="textUpdate()">
+          Update
+        </button> -->
+
       </div>
-
-      <div id="front">
-
-      </div>
-<!-- 
-
-
-      <br/>
-      <br/>
-      <br/> -->
-
-      <!-- <input id="inputBox" type="text" name="some_name" value=""/>
-      <button id="" onClick="textUpdate()">
-        Update
-      </button> -->
-
     </div>
+
 
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+    <!-- <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
@@ -92,6 +99,7 @@
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+  -->
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -111,11 +119,163 @@
     <script src="scripts/config.js"></script>
     <!-- endbuild -->
 
+    <!-- build:js({app,.tmp}) scripts/plugin.js -->
+    <script src="scripts/kinetic.js"></script>
+    <script src="scripts/megapix-image.js"></script>
+    <!-- endbuild -->
+
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+
 </body>
-<script charset="utf-8">
+<script>
+  getSize();
+
+  //Photo
+  var width;
+  var canvasHeight;
+
+  function getSize()
+  {
+    width = $(window).width();
+    // console.log("window width= "+width);
+    canvasWidth = $(window).width();
+    height = $(window).height();
+
+    canvasHeight = width * 590/945;
+  }
+
+  window.onload = function() {
+    var fileInput = document.getElementById('fileUpload');
+    fileInput.onchange = function() {
+      var file = fileInput.files[0];
+      // MegaPixImage constructor accepts File/Blob object.
+      var mpImg = new MegaPixImage(file);
+
+      // Render resized image into image element using quality option.
+      // Quality option is valid when rendering into image element.
+      // var resImg = document.getElementById('resultImage');
+      // mpImg.render(resImg, { maxWidth: 300, maxHeight: 300, quality: 0.5 });
+      //
+      // // Render resized image into canvas element.
+      // var resCanvas1 = document.getElementById('resultCanvas1');
+      // mpImg.render(resCanvas1, { maxWidth: 300, maxHeight: 300 });
+
+      // Render resized image into canvas element, rotating orientation = 6 (90 deg rotate right)
+      // Types of orientation is defined in EXIF specification.
+      // To detect orientation of JPEG file in JS, you can use exif.js from https://github.com/jseidelin/exif-js
+      var resCanvas2 = document.getElementById('resultCanvas2');
+      mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 1, orientation: 6 });
+
+      setTimeout("draw()",1000);
+    };
+  };
+
+  //kinetic.js
+  var stage = new Kinetic.Stage
+  ({
+    container: 'canvasContainer',
+    width: width,
+    height: canvasHeight
+  });
+
+  var layer = new Kinetic.Layer();
+
+  $( '#fileUpload' ).change(function()
+  {
+    layer.destroy();
+  });
+
+  function draw()
+  {
+    degree = 0;
+
+    var imageObj = new Image();
+
+    imageObj.onload = function()
+    {
+      oriImgHeight = imageObj.height;
+      oriImgWidth = imageObj.width;
+
+      //zoom ratio
+      var zw = width/oriImgWidth;
+      var zh = canvasHeight/oriImgHeight;
+      console.log("zw= " + zw);
+      console.log("zh= " + zh);
+
+      currentZ = Math.max(zw, zh);
+
+      minZ = currentZ;
+
+      ratioImgWidth = minZ*oriImgWidth;
+      ratioImgHeight = minZ*oriImgHeight;
+      editedHeight = ratioImgHeight;
+
+      ratio = oriImgWidth/oriImgHeight;
+
+      wideWidth = (canvasHeight*ratio);
+
+      minX = -((ratioImgWidth-width)/2 - width/2);
+      maxX = ((ratioImgWidth-width)/2 + width/2);
+      minY = -((ratioImgHeight-canvasHeight)/2 - canvasHeight/2);
+      maxY = ((ratioImgHeight-canvasHeight)/2 + canvasHeight/2);
+
+      oriX = ((stage.getWidth()/2)-(ratioImgWidth/2)+ratioImgWidth/2);
+      oriY = ((stage.getHeight()/2)-(ratioImgHeight/2)+ratioImgHeight/2);
+
+      myImage = new Kinetic.Image
+      ({
+        image: imageObj,
+        width: ratioImgWidth,
+        height: editedHeight,
+        x: oriX,
+        y: oriY,
+        offsetX:ratioImgWidth/2,
+        offsetY:ratioImgHeight/2,
+        draggable: true,
+        dragBoundFunc: function (pos)
+        {
+          var X = pos.x;
+          var Y = pos.y;
+          if (X < minX) {
+              X = minX;
+          }
+          if (X > maxX) {
+              X = maxX;
+          }
+          if (Y < minY) {
+              Y = minY;
+          }
+          if (Y > maxY) {
+              Y = maxY;
+          }
+          return ({
+              x: X,
+              y: Y
+          });
+        }
+      });
+
+      layer.add(myImage);
+      stage.add(layer);
+    };
+
+    /*var f = document.getElementById('fileUpload').files[0];
+    var name = f.name;
+    var url = window.URL || window.webkitURL;
+    var src = url.createObjectURL(f);
+
+
+    imageObj.src = src;*/
+
+    imageObj.src = document.getElementById("resultCanvas2").toDataURL("image/png",1);
+
+    stage.draw();
+    // url.revokeObjectURL(src);
+
+    // $("#fileUpload").replaceWith($("#fileUpload").val('').clone(true));
+  }
 
 </script>
 

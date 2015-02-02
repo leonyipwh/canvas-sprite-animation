@@ -112,6 +112,11 @@ body {
   z-index:-10;
 }
 
+#resultCanvas2
+{
+  display:none;
+}
+
 @-webkit-keyframes slidein
 {
   from { -webkit-transform: translateX(-10%); }

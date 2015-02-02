@@ -1,3 +1,12 @@
+//Var
+$layerWidth:320px;
+
+$backHeight:70px;
+$middleHeight:145px;
+$frontHeight:200px;
+
+
+//Content
 body {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -11,14 +20,30 @@ body {
   display:none;
 }
 
+#middle
+{
+  position:relative;
+  height:$middleHeight;
+}
+
+#front
+{
+  position:relative;
+  width:100%;
+  height:$frontHeight;
+  background-color:yellow;
+}
+
 #svgContainer
 {
-  margin-top:-5px;
+  position:absolute;
+  width:100%;
+  height:100%;
 }
 
 #svg
 {
-  height:129px;
+  height:100%;
   width:100%;
   -moz-transform: scaleY(-1);
   -o-transform: scaleY(-1);
@@ -32,7 +57,7 @@ body {
 }
 
 #back {
-	height: 70px;
+	height:$backHeight;
 	overflow: hidden;
 }
 
@@ -47,9 +72,9 @@ body {
   transform: scaleY(-1);
 }
 
-#gameCanvas
+#canvas
 {
-  height:145px;
+  height:100%;
   width:100%;
   background-color:black;
   -moz-transform: scaleY(1);
@@ -58,14 +83,15 @@ body {
   transform: scaleY(1);
 }
 
-#front
+#canvas
 {
-  height:125px;
+  position:absolute;
+  width:100%;
 }
 
 #layers
 {
-  width:320px;
+  width:$layerWidth;
   margin:auto;
 }
 

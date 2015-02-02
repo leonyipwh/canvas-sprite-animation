@@ -15,7 +15,7 @@ var imageReady = false;
 var frame = 0;
 
 function onload() {
-  canvas = document.getElementById('gameCanvas');
+  canvas = document.getElementById('canvas');
   ctx = canvas.getContext('2d');
   img = new Image();
   img.src = imgPath1;

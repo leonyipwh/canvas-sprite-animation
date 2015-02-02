@@ -1,9 +1,94 @@
 body {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin:0px;
+  width:100%;
+  background:black;
 }
 
 #p2 ,#p3 ,#p4
 {
   display:none;
+}
+
+#svg
+{
+  height:129px;
+  width:100%;
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+
+#copyText
+{
+  font-size:40px;
+}
+
+#back {
+	height: 70px;
+	overflow: hidden;
+}
+
+#back > div
+{
+	position: relative;
+	width: 120%;
+	height: 100%;
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+
+#gameCanvas
+{
+  height:150px;
+  width:100%;
+  background-color:black;
+  -moz-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+
+#front
+{
+  height:125px;
+}
+
+#layers
+{
+  width:320px;
+  margin:auto;
+}
+
+#layers > div
+{
+  width:320px;
+}
+
+#slidein {
+	position: absolute;
+  width:100%;
+	-webkit-animation:10s -5s infinite alternate forwards;
+	-webkit-animation-name:slidein;
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	animation:10s -5s infinite alternate forwards;
+	animation-name:slidein;
+	animation-timing-function: linear; /* Chrome, Safari, Opera */
+  z-index:-10;
+}
+
+@-webkit-keyframes slidein
+{
+  from { -webkit-transform: translateX(-10%); }
+  to   { -webkit-transform: translateX(0); }
+}
+
+@keyframes slidein
+{
+  from { -webkit-transform: translateX(-10%); }
+  to   { -webkit-transform: translateX(0); }
 }

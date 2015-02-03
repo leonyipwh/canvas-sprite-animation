@@ -1,8 +1,6 @@
 //config
 
 var fps = 24;
-// var imgPath1 = '../images/char9.png';
-// var imgPath1 = '../images/fire.png';
 var imgPath1 = './images/ice.png';
 
 var frameHeight;
@@ -14,6 +12,10 @@ var ctx = null;
 var imageReady = false;
 var frame = 0;
 var hashData;
+
+//customise item
+var theme =0;
+var msgValue;
 
 function canvasAni()
 {
@@ -63,15 +65,20 @@ function textUpdate()
 
   console.log(text);
 
-  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10" y="50%" fill="white" contenteditable="true">'+text+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
+  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10" y="70%" fill="white" contenteditable="true">'+text+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
 
+}
+
+function saveText()
+{
+  var text = document.getElementById('inputBox').value;
+
+  msgValue = text;
 }
 
 function changePage(e)
 {
   window.location.hash = '#'+ e;
-  // $('.page').hide();
-  // $('#'+e).show();
 }
 
 function getHash()
@@ -90,3 +97,29 @@ $(window).on('hashchange', function()
 	$('.page').hide();
 	$('#'+hashData).show();
 });
+
+
+var videoManager = function() {
+    this.audio = document.getElementById('videoAudio');
+    this.gif = document.getElementById('gif');
+};
+
+videoManager.prototype.play = function(x) {
+
+  this.audio.src = 'music/'+x+'.mp3';
+  this.audio.play();
+
+  if (x===1)
+  {
+    this.gif.src = 'images/dancer.gif';
+  }else
+  {
+    this.gif.src = 'images/band.gif';
+  }
+
+  theme=x;
+};
+
+videoManager.prototype.stop = function() {
+  this.audio.pause();
+};

@@ -20,6 +20,40 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <div id="music" class="page">
+      <br/>
+
+      <div>
+        <img id="gif" src="images/dancer.gif" alt="" />
+      </div>
+
+      <br/>
+      <audio id="videoAudio" preload="none" loop>
+        <source src="music/1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <div class="musicBtn" onclick="videoManager.play(1)">
+        video 1
+      </div>
+      <br/>
+      <div class="musicBtn" onclick="videoManager.play(2)">
+        video 2
+      </div>
+      <br/>
+      <br/>
+      <button name="button" onClick="videoManager.stop();changePage('msg')">Next</button>
+    </div>
+
+    <div id="msg" class="page">
+      <br/>
+      <br/>
+      <input id="inputBox" type="text" name="some_name" value=""/>
+      <button id="" onClick="saveText();changePage('photo')">
+        Update
+      </button>
+    </div>
+
     <div id="photo" class="page">
       <div>
         <div id="canvasContainer"></div>
@@ -75,10 +109,7 @@
   <!--  <br/>
         <br/>
         <br/> -->
-        <!-- <input id="inputBox" type="text" name="some_name" value=""/>
-        <button id="" onClick="textUpdate()">
-          Update
-        </button> -->
+
       </div>
     </div>
 
@@ -129,6 +160,9 @@
 
 </body>
 <script>
+
+  videoManager = new videoManager();
+
   getSize();
 
   //Photo

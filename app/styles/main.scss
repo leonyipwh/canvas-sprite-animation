@@ -117,6 +117,31 @@ body {
   display:none;
 }
 
+#preivew
+{
+  display:none;
+}
+
+#photo
+{
+  text-align:center;
+}
+
+.page > div
+{
+  margin:auto;
+}
+
+#canvasContainer
+{
+  border:1px white solid;
+  width:320px;
+  margin:auto;
+  margin-top:10px;
+  margin-bottom:10px;
+  height:70px;
+}
+
 @-webkit-keyframes slidein
 {
   from { -webkit-transform: translateX(-10%); }

@@ -15,43 +15,93 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body onload="onload()">
+  <body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div id="index" class="page">
+      <br/>
+      <br/>
+      <div id="startBtn" onclick="changePage('music')">
+        Start
+      </div>
+    </div>
 
     <div id="music" class="page">
       <br/>
-
       <div>
         <img id="gif" src="images/dancer.gif" alt="" />
       </div>
-
       <br/>
-      <audio id="videoAudio" preload="none" loop>
+      <audio id="videoAudio" loop contols>
         <source src="music/1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
 
       <div class="musicBtn" onclick="videoManager.play(1)">
-        video 1
+        theme 1
       </div>
       <br/>
       <div class="musicBtn" onclick="videoManager.play(2)">
-        video 2
+        theme 2
       </div>
       <br/>
       <br/>
-      <button name="button" onClick="videoManager.stop();changePage('msg')">Next</button>
+      <button name="button" onClick="videoManager.save();changePage('msg')">Next</button>
     </div>
 
     <div id="msg" class="page">
       <br/>
       <br/>
-      <input id="inputBox" type="text" name="some_name" value=""/>
-      <button id="" onClick="saveText();changePage('photo')">
-        Update
-      </button>
+      <div class="layers">
+        <canvas id="msgCanvas"></canvas>
+        <div id="msgSvgContainer">
+          <svg id="msgSvg">
+            <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
+              <animate
+                xlink:href="#orange_circle"
+                attributeName="cx"
+                from="0"
+                to="100%"
+                begin="0s"
+                dur="10s"
+                repeatCount="indefinite">
+              </animate>
+            </circle> -->
+            <text class="msgCopyText" x="10" y="70%" fill="white" contenteditable="true">
+              I love SVG!
+      				<animate
+              attributeName="x"
+              from="0%"
+              to="100%"
+              begin="0s"
+              dur="4s"
+              repeatCount="indefinite">
+              </animate>
+      			</text>
+          </svg>
+        </div>
+        <br/>
+        <div class="musicBtn" onclick="canvasManager('msgCanvas',1)">
+          video 1
+        </div>
+        <br/>
+        <div class="musicBtn" onclick="canvasManager('msgCanvas',2)">
+          video 2
+        </div>
+        <br/>
+        <br/>
+        <input id="msgInputBox" type="text" name="some_name" value=""/>
+        <button id="" onClick="updateMsgText();">
+          Update
+        </button>
+        <br/>
+        <br/>
+        <div class="musicBtn" onclick="saveMsg();changePage('photo')">
+          Next
+        </div>
+
+      </div>
     </div>
 
     <div id="photo" class="page">
@@ -66,7 +116,7 @@
     </div>
 
     <div id="preivew" class="page">
-      <div id="layers">
+      <div class="layers">
         <div id="back">
           <div id="">
             <img id="slidein" src="images/stage.jpg" alt="" />
@@ -104,7 +154,7 @@
         </div>
 
         <div id="front">
-
+          <img id="previewGif" src="" alt="" />
         </div>
   <!--  <br/>
         <br/>
@@ -322,13 +372,22 @@
       quality: 1.0,
       callback: function(dataUrl)
       {
+        var imageData;
+
         $('#slidein').attr('src', dataUrl);
+        imageData=dataUrl;
+
+        customData={
+          'theme':theme,
+          'videoNum':videoNum,
+          'msgText':msgText,
+          'imageData':imageData
+        };
+
+        preview();
+        changePage('preivew');
       }
     });
-
-    changePage('preivew');
-
-    canvasAni();
   }
 
 </script>

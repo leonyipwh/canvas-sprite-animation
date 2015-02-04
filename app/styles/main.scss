@@ -41,7 +41,15 @@ body {
   height:100%;
 }
 
-#svg
+#msgSvgContainer
+{
+  position:absolute;
+  top:0px;
+  width:100%;
+  height:$middleHeight;
+}
+
+#svg, #msgSvg
 {
   height:100%;
   width:100%;
@@ -51,7 +59,7 @@ body {
   transform: scaleY(-1);
 }
 
-#copyText
+#copyText,.msgCopyText
 {
   font-size:40px;
 }
@@ -74,6 +82,7 @@ body {
 
 #canvas
 {
+  position:absolute;
   height:100%;
   width:100%;
   background-color:black;
@@ -83,19 +92,20 @@ body {
   transform: scaleY(1);
 }
 
-#canvas
+#msgCanvas
 {
-  position:absolute;
   width:100%;
+  height:$middleHeight;
 }
 
-#layers
+.layers
 {
   width:$layerWidth;
   margin:auto;
+  position:relative;
 }
 
-#layers > div
+.layers > div
 {
   width:320px;
 }
@@ -156,6 +166,24 @@ body {
 
 #msg{
   text-align:center;
+}
+
+#startBtn
+{
+  width:200px;
+  padding:10px;
+  background-color:yellow;
+}
+
+#index
+{
+  display:inline;
+}
+
+#previewGif
+{
+  width:100%;
+  height:100%;
 }
 
 @-webkit-keyframes slidein

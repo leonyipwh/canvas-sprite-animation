@@ -20,7 +20,7 @@ var videoNum;
 
 var theme;
 var msgValue;
-var msgText;
+var msgText = 'I love SVG';
 var video;
 
 
@@ -32,9 +32,12 @@ function preview()
   if (customData.theme===1)
   {
     previewGifPath = 'images/dancer.gif';
+    $('#previewAudio').attr('src','music/1.mp3');
+
   }else
   {
     previewGifPath = 'images/band.gif';
+    $('#previewAudio').attr('src','music/2.mp3');
   }
 
   $('#previewGif').attr('src',previewGifPath);
@@ -42,6 +45,8 @@ function preview()
   canvasAni();
 
   previewSvg();
+
+  document.getElementById('previewAudio').play();
 }
 
 function canvasAni()
@@ -95,7 +100,7 @@ function update(){
 
 function previewSvg()
 {
-  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10" y="70%" fill="white" contenteditable="true">'+customData.msgText+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
+  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10" y="70%" fill="white">'+customData.msgText+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
 }
 
 
@@ -105,7 +110,7 @@ function textUpdate()
 
   console.log(text);
 
-  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10" y="70%" fill="white" contenteditable="true">'+text+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
+  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10" y="70%" fill="white">'+text+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
 
 }
 
@@ -127,8 +132,17 @@ $(window).on('hashchange', function()
 {
   hashData = window.location.hash.substring(1);
 
-	$('.page').hide();
+  $('.page').hide();
 	$('#'+hashData).show();
+
+  if (hashData !== 'preview')
+  {
+  	document.getElementById('previewAudio').pause();
+    document.getElementById('videoAudio').pause();
+  }else
+  {
+    document.getElementById('previewAudio').play();
+  }
 });
 
 
@@ -227,8 +241,11 @@ function updateMsgText()
 
   console.log(text);
 
-  msgText= text;
+  if (text.length>0)
+  {
+    msgText = text;
+  }
 
-  $('#msgSvgContainer').html('<svg id="msgSvg" height="86px" width="300px"><text id="copyText" x="10" y="70%" fill="white" contenteditable="true">'+text+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
+  $('#msgSvgContainer').html('<svg id="msgSvg"><text class="msgCopyText" x="10" y="70%" fill="white">'+msgText+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
 
 }

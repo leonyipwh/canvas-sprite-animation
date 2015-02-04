@@ -68,7 +68,7 @@
                 repeatCount="indefinite">
               </animate>
             </circle> -->
-            <text class="msgCopyText" x="10" y="70%" fill="white" contenteditable="true">
+            <text class="msgCopyText" x="10" y="70%" fill="white">
               I love SVG!
       				<animate
               attributeName="x"
@@ -82,24 +82,27 @@
           </svg>
         </div>
         <br/>
-        <div class="musicBtn" onclick="canvasManager('msgCanvas',1)">
-          video 1
+        <div>
+                  <div class="musicBtn" onclick="canvasManager('msgCanvas',1)">
+                    video 1
+                  </div>
+                  <br/>
+                  <div class="musicBtn" onclick="canvasManager('msgCanvas',2)">
+                    video 2
+                  </div>
+                  <br/>
+                  <br/>
+                  <input id="msgInputBox" type="text" name="some_name" value=""/>
+                  <button id="" onClick="updateMsgText();">
+                    Update
+                  </button>
+                  <br/>
+                  <br/>
+                  <div class="musicBtn" onclick="saveMsg();changePage('photo')">
+                    Next
+                  </div>
         </div>
-        <br/>
-        <div class="musicBtn" onclick="canvasManager('msgCanvas',2)">
-          video 2
-        </div>
-        <br/>
-        <br/>
-        <input id="msgInputBox" type="text" name="some_name" value=""/>
-        <button id="" onClick="updateMsgText();">
-          Update
-        </button>
-        <br/>
-        <br/>
-        <div class="musicBtn" onclick="saveMsg();changePage('photo')">
-          Next
-        </div>
+
 
       </div>
     </div>
@@ -115,11 +118,16 @@
       </div>
     </div>
 
-    <div id="preivew" class="page">
+    <div id="preview" class="page">
+      <audio id="previewAudio" loop>
+        <source src="music/1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
       <div class="layers">
         <div id="back">
           <div id="">
             <img id="slidein" src="images/stage.jpg" alt="" />
+            <img id="cusImg"  src="" alt="" />
           </div>
         </div>
 
@@ -138,7 +146,7 @@
                   repeatCount="indefinite">
                 </animate>
               </circle> -->
-              <text id="copyText" x="10" y="70%" fill="white" contenteditable="true">
+              <text id="copyText" x="10" y="70%" fill="white">
                 I love SVG!
         				<animate
                 attributeName="x"
@@ -156,13 +164,8 @@
         <div id="front">
           <img id="previewGif" src="" alt="" />
         </div>
-  <!--  <br/>
-        <br/>
-        <br/> -->
-
       </div>
     </div>
-
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -226,12 +229,11 @@
     // canvasWidth = $(window).width();
     // height = $(window).height();
 
-    width = 320;
+    width = 250;
     // console.log("window width= "+width);
-    canvasWidth = 320;
-    height = 70;
-
-    canvasHeight = 70;
+    canvasWidth = 250;
+    height = 250;
+    canvasHeight = 250;
   }
 
   window.onload = function() {
@@ -254,7 +256,7 @@
       // Types of orientation is defined in EXIF specification.
       // To detect orientation of JPEG file in JS, you can use exif.js from https://github.com/jseidelin/exif-js
       var resCanvas2 = document.getElementById('resultCanvas2');
-      mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 1, orientation: 6 });
+      mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 0.5, orientation: 6 });
 
       setTimeout("draw()",1000);
     };
@@ -264,8 +266,8 @@
   var stage = new Kinetic.Stage
   ({
     container: 'canvasContainer',
-    width: width,
-    height: canvasHeight
+    width: 250,
+    height: 250
   });
 
   var layer = new Kinetic.Layer();
@@ -369,12 +371,12 @@
     stage.toDataURL
     ({
       mimeType: 'image/png',
-      quality: 1.0,
+      quality: 0.5,
       callback: function(dataUrl)
       {
         var imageData;
 
-        $('#slidein').attr('src', dataUrl);
+        $('#cusImg').attr('src', dataUrl);
         imageData=dataUrl;
 
         customData={
@@ -385,7 +387,8 @@
         };
 
         preview();
-        changePage('preivew');
+
+        changePage('preview');
       }
     });
   }

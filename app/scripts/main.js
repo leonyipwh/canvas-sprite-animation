@@ -24,25 +24,24 @@ var msgText = 'I love SVG';
 var video;
 
 
-
 function preview()
 {
   var previewGifPath;
 
   if (customData.theme===1)
   {
-    previewGifPath = 'images/dancer.gif';
-    $('#previewAudio').attr('src','music/1.mp3');
+    previewGifPath = 'images/women.gif';
+    $('#previewAudio_2d').attr('src','music/1.mp3');
 
   }else
   {
-    previewGifPath = 'images/band.gif';
-    $('#previewAudio').attr('src','music/2.mp3');
+    previewGifPath = 'images/man.gif';
+    $('#previewAudio_2d').attr('src','music/2.mp3');
   }
 
-  $('#previewGif').attr('src',previewGifPath);
+  $('.previewGif').attr('src',previewGifPath);
 
-  canvasAni();
+  // canvasAni();
 
   previewSvg();
 
@@ -100,7 +99,7 @@ function update(){
 
 function previewSvg()
 {
-  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10" y="70%" fill="white">'+customData.msgText+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
+  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10%" y="70%" fill="white">'+customData.msgText+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
 }
 
 
@@ -110,7 +109,7 @@ function textUpdate()
 
   console.log(text);
 
-  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10" y="70%" fill="white">'+text+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
+  $('#svgContainer').html('<svg id="svg" height="86px" width="300px"><text id="copyText" x="10%" y="70%" fill="white">'+text+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
 
 }
 
@@ -158,10 +157,10 @@ videoManager.prototype.play = function(x) {
 
   if (x===1)
   {
-    this.gif.src = 'images/dancer.gif';
+    this.gif.src = 'images/women.gif';
   }else
   {
-    this.gif.src = 'images/band.gif';
+    this.gif.src = 'images/man.gif';
   }
 
   this.theme = x;
@@ -246,6 +245,15 @@ function updateMsgText()
     msgText = text;
   }
 
-  $('#msgSvgContainer').html('<svg id="msgSvg"><text class="msgCopyText" x="10" y="70%" fill="white">'+msgText+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
+  $('#msgSvgContainer').html('<svg id="msgSvg"><text class="msgCopyText" x="10%" y="70%" fill="white">'+msgText+'<animate attributeName="x" from="0%" to="100%" begin="0s" dur="4s" repeatCount="indefinite"></animate></text></svg>');
 
+}
+
+function chGif(x)
+{
+  if (x===1) {
+    $('.middleGif').attr('src','images/redBall.gif');
+  }else{
+    $('.middleGif').attr('src','images/yellowBall.gif');
+  }
 }

@@ -30,7 +30,7 @@
     <div id="music" class="page">
       <br/>
       <div>
-        <img id="gif" src="images/dancer.gif" alt="" />
+        <img id="gif" src="images/women.gif" alt="" />
       </div>
       <br/>
       <audio id="videoAudio" loop contols>
@@ -54,7 +54,8 @@
       <br/>
       <br/>
       <div class="layers">
-        <canvas id="msgCanvas"></canvas>
+        <!-- <canvas id="msgCanvas"></canvas> -->
+        <img id="msgCanvas" class="middleGif" src="" alt="" />
         <div id="msgSvgContainer">
           <svg id="msgSvg">
             <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
@@ -68,7 +69,7 @@
                 repeatCount="indefinite">
               </animate>
             </circle> -->
-            <text class="msgCopyText" x="10" y="70%" fill="white">
+            <text class="msgCopyText" x="10%" y="70%" fill="white">
               I love SVG!
       				<animate
               attributeName="x"
@@ -83,27 +84,27 @@
         </div>
         <br/>
         <div>
-                  <div class="musicBtn" onclick="canvasManager('msgCanvas',1)">
-                    video 1
-                  </div>
-                  <br/>
-                  <div class="musicBtn" onclick="canvasManager('msgCanvas',2)">
-                    video 2
-                  </div>
-                  <br/>
-                  <br/>
-                  <input id="msgInputBox" type="text" name="some_name" value=""/>
-                  <button id="" onClick="updateMsgText();">
-                    Update
-                  </button>
-                  <br/>
-                  <br/>
-                  <div class="musicBtn" onclick="saveMsg();changePage('photo')">
-                    Next
-                  </div>
+          <!-- <div class="musicBtn" onclick="canvasManager('msgCanvas',1)"> -->
+          <div class="musicBtn" onclick="chGif(1)">
+            video 1
+          </div>
+          <br/>
+          <!-- <div class="musicBtn" onclick="canvasManager('msgCanvas',2)"> -->
+          <div class="musicBtn" onclick="chGif(2)">
+            video 2
+          </div>
+          <br/>
+          <br/>
+          <input id="msgInputBox" type="text" name="some_name" value=""/>
+          <button id="" onClick="updateMsgText();">
+            Update
+          </button>
+          <br/>
+          <br/>
+          <div class="musicBtn" onclick="saveMsg();changePage('photo')">
+            Next
+          </div>
         </div>
-
-
       </div>
     </div>
 
@@ -118,21 +119,75 @@
       </div>
     </div>
 
+    <div id="preview_2d" class="page">
+      <audio id="previewAudio_2d" loop>
+        <source src="music/1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <br/>
+      <div class="layers">
+        <div id="container_2d">
+          <div class="back">
+            <div>
+              <img class="slidein" src="images/stage.jpg" alt="" />
+              <img id="cusImg_2d"  src="" alt="" />
+            </div>
+
+          </div>
+          <div id="middle_2d">
+            <img class="middleGif" src="" alt="" />
+            <svg id="svg_2d">
+              <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
+                <animate
+                  xlink:href="#orange_circle"
+                  attributeName="cx"
+                  from="0"
+                  to="100%"
+                  begin="0s"
+                  dur="10s"
+                  repeatCount="indefinite">
+                </animate>
+              </circle> -->
+              <text id="copyText_2d" x="10" y="70%" fill="white">
+                I love SVG!
+        				<animate
+                attributeName="x"
+                from="0%"
+                to="100%"
+                begin="0s"
+                dur="4s"
+                repeatCount="indefinite">
+                </animate>
+        			</text>
+            </svg>
+          </div>
+          <div id="front_2d">
+            <img class="previewGif" src="" alt="" />
+          </div>
+        </div>
+              <br/>
+              <br/>
+              <button name="button" onclick="changePage('preview')">Next</button>
+      </div>
+
+    </div>
+
     <div id="preview" class="page">
       <audio id="previewAudio" loop>
         <source src="music/1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
       <div class="layers">
-        <div id="back">
+        <div class="back">
           <div id="">
-            <img id="slidein" src="images/stage.jpg" alt="" />
+            <img class="slidein" src="images/stage.jpg" alt="" />
             <img id="cusImg"  src="" alt="" />
           </div>
         </div>
 
         <div id="middle">
-          <canvas id="canvas"></canvas>
+          <!-- <canvas id="canvas"></canvas> -->
+          <img class="middleGif" src="" alt="" />
           <div id="svgContainer">
             <svg id="svg">
               <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
@@ -162,7 +217,7 @@
         </div>
 
         <div id="front">
-          <img id="previewGif" src="" alt="" />
+          <img class="previewGif" src="" alt="" />
         </div>
       </div>
     </div>
@@ -377,6 +432,7 @@
         var imageData;
 
         $('#cusImg').attr('src', dataUrl);
+        $('#cusImg_2d').attr('src', dataUrl);
         imageData=dataUrl;
 
         customData={
@@ -388,7 +444,7 @@
 
         preview();
 
-        changePage('preview');
+        changePage('preview_2d');
       }
     });
   }

@@ -22,204 +22,116 @@
     <div id="index" class="page">
       <br/>
       <br/>
-      <div id="startBtn" onclick="changePage('music')">
+      <div id="startBtn" class="btn" onclick="changePage('theme')">
         Start
       </div>
     </div>
 
-    <div id="music" class="page">
+    <div id="theme" class="page">
+      <img id="themePreview" src="images/man.gif" alt="" />
       <br/>
-      <div>
-        <img id="gif" src="images/women.gif" alt="" />
-      </div>
       <br/>
-      <audio id="videoAudio" loop contols>
-        <source src="music/1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-
-      <div class="musicBtn" onclick="videoManager.play(1)">
+      <div class="btn" onclick="previewTheme(1)">
         theme 1
       </div>
       <br/>
-      <div class="musicBtn" onclick="videoManager.play(2)">
+      <br/>
+      <div class="btn" onclick="previewTheme(2)">
         theme 2
+      </div>
+
+      <br/>
+      <br/>
+      <div class="btn" onclick="changePage('text')">
+        Next
+      </div>
+    </div>
+
+    <div id="text" class="page">
+      <br/>
+      <div class="textContainer">
+        <div id="customText">
+          hihi
+        </div>
+        <div id="textImg">
+          <img src="images/redBall.gif" alt="" />
+        </div>
       </div>
       <br/>
       <br/>
-      <button name="button" onClick="videoManager.save();changePage('msg')">Next</button>
-    </div>
-
-    <div id="msg" class="page">
+      <div class="btn" onclick="previewVideo(1)">
+        Video 1
+      </div>
       <br/>
+      <div class="btn" onclick="previewVideo(2)">
+        Video 2
+      </div>
       <br/>
-      <div class="layers">
-        <!-- <canvas id="msgCanvas"></canvas> -->
-        <img id="msgCanvas" class="middleGif" src="" alt="" />
-        <div id="msgSvgContainer">
-          <svg id="msgSvg">
-            <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
-              <animate
-                xlink:href="#orange_circle"
-                attributeName="cx"
-                from="0"
-                to="100%"
-                begin="0s"
-                dur="10s"
-                repeatCount="indefinite">
-              </animate>
-            </circle> -->
-            <text class="msgCopyText" x="10%" y="70%" fill="white">
-              I love SVG!
-      				<animate
-              attributeName="x"
-              from="0%"
-              to="100%"
-              begin="0s"
-              dur="4s"
-              repeatCount="indefinite">
-              </animate>
-      			</text>
-          </svg>
-        </div>
-        <br/>
-        <div>
-          <!-- <div class="musicBtn" onclick="canvasManager('msgCanvas',1)"> -->
-          <div class="musicBtn" onclick="chGif(1)">
-            video 1
-          </div>
-          <br/>
-          <!-- <div class="musicBtn" onclick="canvasManager('msgCanvas',2)"> -->
-          <div class="musicBtn" onclick="chGif(2)">
-            video 2
-          </div>
-          <br/>
-          <br/>
-          <input id="msgInputBox" type="text" name="some_name" value=""/>
-          <button id="" onClick="updateMsgText();">
-            Update
-          </button>
-          <br/>
-          <br/>
-          <div class="musicBtn" onclick="saveMsg();changePage('photo')">
-            Next
-          </div>
-        </div>
+      <div class="btn" onclick="changePage('photo')">
+        Next
       </div>
     </div>
 
     <div id="photo" class="page">
-      <div>
-        <div id="canvasContainer"></div>
-        <canvas id="resultCanvas2"></canvas>
-        <input id="fileUpload" type="file" class="upload" accept="image/*"/>
-        <button id="name" onClick="submitPhoto()">
-          submit
-        </button>
+      <br/>
+      <canvas id="resultCanvas2"></canvas>
+      <div id="canvasContainer"></div>
+      <input id="fileUpload" type="file" name="pic" accept="image/*" capture="camera">
+      <br/>
+      <br/>
+      <div class="btn" onclick="changePage('preview_2d');submitPhoto()">
+        Next
       </div>
     </div>
 
     <div id="preview_2d" class="page">
-      <audio id="previewAudio_2d" loop>
-        <source src="music/1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
       <br/>
-      <div class="layers">
-        <div id="container_2d">
-          <div class="back">
-            <div>
-              <img class="slidein" src="images/stage.jpg" alt="" />
-              <img id="cusImg_2d"  src="" alt="" />
-            </div>
-
-          </div>
-          <div id="middle_2d">
-            <img class="middleGif" src="" alt="" />
-            <svg id="svg_2d">
-              <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
-                <animate
-                  xlink:href="#orange_circle"
-                  attributeName="cx"
-                  from="0"
-                  to="100%"
-                  begin="0s"
-                  dur="10s"
-                  repeatCount="indefinite">
-                </animate>
-              </circle> -->
-              <text id="copyText_2d" x="10" y="70%" fill="white">
-                I love SVG!
-        				<animate
-                attributeName="x"
-                from="0%"
-                to="100%"
-                begin="0s"
-                dur="4s"
-                repeatCount="indefinite">
-                </animate>
-        			</text>
-            </svg>
-          </div>
-          <div id="front_2d">
-            <img class="previewGif" src="" alt="" />
-          </div>
-        </div>
-          <br/>
-          <br/>
-          <button name="button" onclick="changePage('preview')">4D version</button>
-      </div>
-
-    </div>
-
-    <div id="preview" class="page">
-      <audio id="previewAudio" loop>
-        <source src="music/1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-      <div class="layers">
+      <div id="container_2d">
         <div class="back">
-          <div id="">
-            <img class="slidein" src="images/stage.jpg" alt="" />
-            <img id="cusImg"  src="" alt="" />
-          </div>
+          <img src="images/stage.jpg" alt="" />
+          <img class="backImage" src="" alt="" />
         </div>
-
-        <div id="middle">
-          <!-- <canvas id="canvas"></canvas> -->
-          <img class="middleGif" src="" alt="" />
-          <div id="svgContainer">
-            <svg id="svg">
-              <!-- <circle id="orange_circle" r="20" cx="0" cy="10%" fill="orange">
-                <animate
-                  xlink:href="#orange_circle"
-                  attributeName="cx"
-                  from="0"
-                  to="100%"
-                  begin="0s"
-                  dur="10s"
-                  repeatCount="indefinite">
-                </animate>
-              </circle> -->
-              <text id="copyText" x="10" y="70%" fill="white">
-                I love SVG!
-        				<animate
-                attributeName="x"
-                from="0%"
-                to="100%"
-                begin="0s"
-                dur="4s"
-                repeatCount="indefinite">
-                </animate>
-        			</text>
-            </svg>
+        <div class="middle">
+          <div class="previewText">
+            hihi
           </div>
+          <img class="video" src="images/redBall.gif" alt="" />
         </div>
-        <div id="front">
-          <img class="previewGif" src="" alt="" />
+        <div class="front">
+          <img class="frontImage" src="" alt="" />
         </div>
       </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="btn" onclick="changePage('preview_4d')">
+        4D Version
+      </div>
     </div>
+
+        <div id="preview_4d" class="page">
+          <br/>
+          <div id="container_4d">
+            <div class="back">
+              <img src="images/stage.jpg" alt="" />
+              <img class="backImage" src="" alt="" />
+            </div>
+            <div class="middle">
+              <div class="previewText">
+                hihi
+              </div>
+              <img class="video" src="images/redBall.gif" alt="" />
+            </div>
+            <div class="front">
+              <img class="frontImage" src="" alt="" />
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        </div>
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -268,9 +180,9 @@
 </body>
 <script>
 
-  videoManager = new videoManager();
-
   getSize();
+
+  $("#index").show();
 
   //Photo
   var width;
@@ -310,7 +222,7 @@
       // Types of orientation is defined in EXIF specification.
       // To detect orientation of JPEG file in JS, you can use exif.js from https://github.com/jseidelin/exif-js
       var resCanvas2 = document.getElementById('resultCanvas2');
-      mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 0.5, orientation: 6 });
+      mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 1, orientation: 6 });
 
       setTimeout("draw()",1000);
     };
@@ -405,19 +317,9 @@
       stage.add(layer);
     };
 
-    /*var f = document.getElementById('fileUpload').files[0];
-    var name = f.name;
-    var url = window.URL || window.webkitURL;
-    var src = url.createObjectURL(f);
-
-    imageObj.src = src;*/
-
     imageObj.src = document.getElementById("resultCanvas2").toDataURL("image/png",1);
 
     stage.draw();
-    // url.revokeObjectURL(src);
-
-    // $("#fileUpload").replaceWith($("#fileUpload").val('').clone(true));
   }
 
   function submitPhoto()
@@ -428,22 +330,17 @@
       quality: 0.5,
       callback: function(dataUrl)
       {
-        var imageData;
-
-        $('#cusImg').attr('src', dataUrl);
-        $('#cusImg_2d').attr('src', dataUrl);
         imageData=dataUrl;
 
         customData={
           'theme':theme,
-          'videoNum':videoNum,
+          'video':video,
           'msgText':msgText,
           'imageData':imageData
         };
 
-        preview();
-
         changePage('preview_2d');
+        build();
       }
     });
   }

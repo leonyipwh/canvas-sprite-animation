@@ -1,6 +1,5 @@
 //Var
 $layerWidth:320px;
-
 $backHeight:70px;
 $middleHeight:145px;
 $frontHeight:200px;
@@ -12,234 +11,220 @@ body {
   padding-bottom: 0px;
   margin:0px;
   width:100%;
+  text-align:center;
   background:black;
-}
-
-#p2 ,#p3 ,#p4
-{
-  display:none;
-}
-
-#middle
-{
-  position:relative;
-  height:$middleHeight;
-}
-
-#middle_2d
-{
-  position:absolute;
-  height:$middleHeight;
-}
-
-#front
-{
-  position:relative;
-  width:100%;
-  height:$frontHeight;
-}
-
-#front_2d
-{
-  position:absolute;
-  width:100%;
-  height:$frontHeight;
-}
-
-#svgContainer
-{
-  position:absolute;
-  width:100%;
-  height:100%;
-  top:0px;
-}
-
-#msgSvgContainer
-{
-  position:absolute;
-  top:0px;
-  width:100%;
-  height:$middleHeight;
-}
-
-#svg, #msgSvg, #svg_2d
-{
-  font-size:40px;
-  height:100%;
-  width:100%;
-  -moz-transform: scaleY(-1);
-  -o-transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);
-  transform: scaleY(-1);
-}
-
-#copyText,.msgCopyText
-{
-  font-size:40px;
-}
-
-.back
-{
-	height:$backHeight;
-	overflow: hidden;
-}
-
-.back > div
-{
-	position: relative;
-	width: 120%;
-	height: 100%;
-  -moz-transform: scaleY(-1);
-  -o-transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);
-  transform: scaleY(-1);
-}
-
-#canvas
-{
-  position:absolute;
-  height:100%;
-  width:100%;
-  background-color:black;
-  -moz-transform: scaleY(1);
-  -o-transform: scaleY(1);
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-}
-
-#msgCanvas
-{
-  width:100%;
-  height:$middleHeight;
-}
-
-.layers
-{
-  width:$layerWidth;
-  margin:auto;
-  position:relative;
-}
-
-.layers > div
-{
-  width:320px;
-}
-
-.slidein {
-	position: absolute;
-  width:100%;
-	-webkit-animation:10s -5s infinite alternate forwards;
-	-webkit-animation-name:slidein;
-	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-	animation:10s -5s infinite alternate forwards;
-	animation-name:slidein;
-	animation-timing-function: linear; /* Chrome, Safari, Opera */
-  z-index:-10;
-}
-
-#cusImg, #cusImg_2d
-{
-  width:50px;
-  height:50px;
-}
-
-#resultCanvas2
-{
-  display:none;
 }
 
 .page
 {
+  margin:auto;
+  width:320px;
+  max-width:320px;
   display:none;
-}
-
-#photo
-{
-  text-align:center;
-}
-
-.page > div
-{
-  margin:auto;
-}
-
-#canvasContainer
-{
-  border:1px white solid;
-  width:250px;
-  margin:auto;
-  margin-top:10px;
-  margin-bottom:10px;
-  height:250px;
-}
-
-.musicBtn
-{
-  width:200px;
-  padding:10px;
-  background-color:yellow;
-  margin:auto;
-}
-
-#music
-{
-  text-align:center;
-}
-
-#msg{
-  text-align:center;
-}
-
-#startBtn
-{
-  width:200px;
-  padding:10px;
-  background-color:yellow;
 }
 
 #index
 {
-  display:inline;
+  // display:inline;
 }
 
-.previewGif
+.btn
 {
-  width:100%;
+  background-color: yellow;
+  padding:10px;
+}
+
+#theme
+{
+  #themePreview
+  {
+    width:100%;
+    background-color:blue;
+  }
+}
+
+#text{
+  .textContainer
+  {
+    position:relative;
+    width:320px;
+    height:$middleHeight;
+    background-color:green;
+
+    #customText
+    {
+      position:relative;
+      color:red;
+      left:0px;
+      top:10%;
+      font-size:30px;
+      width:auto;
+      text-align:left;
+    	-webkit-animation:10s -5s infinite alternate forwards;
+    	-webkit-animation-name:textAni;
+    	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+    	animation:10s -5s infinite alternate forwards;
+    	animation-name:textAni;
+    	animation-timing-function: linear; /* Chrome, Safari, Opera */
+    }
+
+    #textImg
+    {
+
+    }
+  }
+}
+
+#photo{
+  #canvasContainer
+  {
+
+  }
+  #resultCanvas2
+  {
+    border:1px solid white;
+    display:none;
+  }
+  #canvasContainer
+  {
+    width:250px;
+    height:250px;
+    margin:auto;
+  }
+}
+
+#preview_2d
+{
+  margin-top:0px;
+
+  #container_2d
+  {
+    width:100%;
+    height:$frontHeight;
+    position:relative;
+
+    div img
+    {
+      width:100%;
+    }
+
+    .back
+    {
+      position:absolute;
+      height:$backHeight;
+      overflow: hidden;
+      bottom:0px;
+    }
+
+    .middle
+    {
+      position:absolute;
+      height:$middleHeight;
+      bottom:0px;
+    }
+
+    .front
+    {
+      height:$frontHeight;
+      position:absolute;
+      width:320px;
+    }
+  }
+}
+
+#preview_4d
+{
+  margin-top:-15px;
+
+  #container_4d
+  {
+    width:100%;
+    height:$frontHeight;
+    position:relative;
+
+    div img
+    {
+      width:100%;
+    }
+
+    .back
+    {
+      position:relative;
+      height:$backHeight;
+      overflow: hidden;
+    }
+
+    .middle
+    {
+      position:relative;
+      height:$middleHeight;
+    }
+
+    .front
+    {
+      position:relative;
+      height:$frontHeight;
+      width:320px;
+    }
+  }
+}
+
+
+.front img
+{
   height:100%;
 }
 
-#container_2d
-{
-  position:relative;
-  height:$frontHeight;
-  width:320px;
-  border:1px white solid;
-}
-
-#container_2d > div
+.previewText
 {
   position:absolute;
-  bottom:0px;
-  width:100%;
+  text-align:left;
+  left:0px;
+  top:40%;
+  font-size:30px;
+	-webkit-animation:10s -5s infinite alternate forwards;
+	-webkit-animation-name:textAni;
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	animation:10s -5s infinite alternate forwards;
+	animation-name:textAni;
+	animation-timing-function: linear; /* Chrome, Safari, Opera */
 }
 
-#svg_2d,#middle_2d
+.backImage
 {
+  width:50px !important;
+  height:50px;
   position:absolute;
-  bottom:0px;
+  top:0px;
+  left:0px;
+
+}
+
+.upsideDown
+{
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
 }
 
 
-
-
-@-webkit-keyframes slidein
-{
-  from { -webkit-transform: translateX(-10%); }
-  to   { -webkit-transform: translateX(0); }
+/* Chrome, Safari, Opera */
+@-webkit-keyframes textAni {
+    from
+    {
+      color: red;
+      margin-left:0px;
+    }
+    to
+    {
+      color: yellow;
+      margin-left:70%;
+    }
 }
 
-@keyframes slidein
-{
-  from { -webkit-transform: translateX(-10%); }
-  to   { -webkit-transform: translateX(0); }
+/* Standard syntax */
+@keyframes textAni {
+    from {background: red;}
+    to {background: yellow;}
 }

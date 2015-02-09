@@ -86,5 +86,11 @@ function build()
     }
 
   $('.previewText').html(customData.msgText);
+}
 
+function updateText()
+{
+  var text = $("#textInput").val();
+  $("#customText").html(text);
+  msgText = text;
 }

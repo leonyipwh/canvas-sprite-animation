@@ -59,6 +59,9 @@
       </div>
       <br/>
       <br/>
+      <audio id="textMusic" preload loop>
+        <source src="music/1.mp3" type="audio/mpeg">
+      </audio>
       <div class="btn" onclick="previewVideo(1)">
         Video 1
       </div>
@@ -83,7 +86,7 @@
       <input id="fileUpload" type="file" name="pic" accept="image/*" capture="camera">
       <br/>
       <br/>
-      <div class="btn" onclick="changePage('preview_2d');submitPhoto()">
+      <div class="btn" onclick="submitPhoto()">
         Next
       </div>
     </div>
@@ -114,28 +117,28 @@
       </div>
     </div>
 
-        <div id="preview_4d" class="page">
-          <br/>
-          <div id="container_4d">
-            <div class="back">
-              <img src="images/stage.jpg" alt="" />
-              <img class="backImage" src="" alt="" />
-            </div>
-            <div class="middle">
-              <div class="previewText">
-                hihi
-              </div>
-              <img class="video" src="images/redBall.gif" alt="" />
-            </div>
-            <div class="front">
-              <img class="frontImage" src="" alt="" />
-            </div>
-          </div>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+    <div id="preview_4d" class="page">
+      <br/>
+      <div id="container_4d">
+        <div class="back">
+          <img src="images/stage.jpg" alt="" />
+          <img class="backImage" src="" alt="" />
         </div>
+        <div class="middle">
+          <div class="previewText">
+            hihi
+          </div>
+          <img class="video" src="images/redBall.gif" alt="" />
+        </div>
+        <div class="front">
+          <img class="frontImage" src="" alt="" />
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
 
 
     <!-- build:js(.) scripts/vendor.js -->

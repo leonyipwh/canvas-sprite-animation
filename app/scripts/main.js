@@ -1,3 +1,6 @@
+//big tv height: 1080
+//width 1920
+
 var theme=1;
 var imageData;
 var video;

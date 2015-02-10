@@ -9,6 +9,13 @@ $middleHeight_tv:640px;
 $frontHeight_tv:675px;
 
 
+//tv2
+$tv2_marginLeft:24px;
+$tv2_marginTop:-970px;
+$height_tv2:713px;
+
+
+
 //Content
 body
 {
@@ -284,7 +291,93 @@ body
   {
     // width:100%;
   }
+}
 
+#tv2
+{
+  width:100%;
+  margin-left:$tv2_marginLeft;
+  margin-top:$tv2_marginTop;
+  -webkit-transform:rotate(-90deg);
+  -moz-transform:rotate(-90deg);
+  -o-transform:rotate(-90deg);
+  -ms-transform:rotate(-90deg);
+  transform:rotate(-90deg);
+}
+
+#tv_preview_4d_box2
+{
+  display:inline;
+
+  div
+  {
+    width:100%;
+    position:relative;
+  }
+
+  #container_4d
+  {
+    width:1100px;
+  }
+
+  .back
+  {
+    height:$height_tv2;
+    overflow:hidden;
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    background-color: red;
+    background-image:url("../images/stage.jpg");
+    background-size:cover;
+
+    img
+    {
+      width:100%;
+    }
+  }
+
+  .middle
+  {
+    height:$height_tv2;
+    background-color:none;
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+
+    .previewText
+    {
+      font-size:100px;
+    }
+
+    .video
+    {
+      width:100%;
+    }
+
+  }
+
+  .front
+  {
+    height:$height_tv2;
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+  }
+
+
+  .page
+  {
+    width:100%;
+  }
+
+  .frontImage
+  {
+    // width:100%;
+  }
 }
 
 

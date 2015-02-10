@@ -1,0 +1,204 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Sprite Animation</title>
+    <meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body id="tv2">
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- <div id="index" class="page">
+      <br/>
+      <br/>
+      <div id="startBtn" class="btn" onclick="changePage('theme')">
+        Start
+      </div>
+    </div>
+
+    <div id="theme" class="page">
+      <img id="themePreview" src="images/man.gif" alt="" />
+      <br/>
+      <br/>
+      <div class="btn" onclick="previewTheme(1)">
+        theme 1
+      </div>
+      <br/>
+      <br/>
+      <div class="btn" onclick="previewTheme(2)">
+        theme 2
+      </div>
+
+      <br/>
+      <br/>
+      <div class="btn" onclick="changePage('text')">
+        Next
+      </div>
+    </div>
+
+    <div id="text" class="page">
+      <br/>
+      <div class="textContainer">
+        <div id="customText">
+          hihi
+        </div>
+        <div id="textImg">
+          <img src="images/redBall.gif" alt="" />
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <audio id="textMusic" preload loop>
+        <source src="music/1.mp3" type="audio/mpeg">
+      </audio>
+      <div class="btn" onclick="previewVideo(1)">
+        Video 1
+      </div>
+      <br/>
+      <div class="btn" onclick="previewVideo(2)">
+        Video 2
+      </div>
+      <br/>
+      <input id="textInput" type="text" name="" value=""></input>
+      <button onclick="updateText()">Update</button>
+      <br/>
+      <br/>
+      <div class="btn" onclick="changePage('photo')">
+        Next
+      </div>
+    </div>
+
+    <div id="photo" class="page">
+      <br/>
+      <canvas id="resultCanvas2"></canvas>
+      <div id="canvasContainer"></div>
+      <input id="fileUpload" type="file" name="pic" accept="image/*" capture="camera">
+      <br/>
+      <br/>
+      <div class="btn" onclick="submitPhoto()">
+        Next
+      </div>
+    </div>
+
+    <div id="preview_2d" class="page">
+      <br/>
+      <div id="container_2d">
+        <div class="back">
+          <img src="images/stage.jpg" alt="" />
+          <img class="backImage" src="" alt="" />
+        </div>
+        <div class="middle">
+          <div class="previewText">
+            hihi
+          </div>
+          <img class="video" src="images/redBall.gif" alt="" />
+        </div>
+        <div class="front">
+          <img class="frontImage" src="" alt="" />
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="btn" onclick="changePage('preview_4d')">
+        4D Version
+      </div>
+    </div> -->
+
+    <div id="tv_preview_4d_box2" class="page">
+      <br/>
+      <div id="container_4d">
+        <div class="back">
+          <!-- <img src="images/stage.jpg" alt="" />
+          <img class="backImage" src="" alt="" /> -->
+        </div>
+        <div class="middle">
+          <div class="previewText">
+            hihi
+          </div>
+          <img class="video" src="images/redBall.gif" alt="" />
+        </div>
+        <div class="front">
+          <img class="frontImage" src="images/man.gif" alt="" />
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!--
+      <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+      </script>
+    -->
+
+    <!-- build:js({app,.tmp}) scripts/config.js -->
+    <script src="scripts/config.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+</body>
+<script>
+
+$( document ).ready(function() {
+      showBigSize();
+});
+
+
+  window.onresize = function() {
+    showBigSize();
+  };
+
+  function showBigSize()
+  {
+    $('#container_4d').width($(window).height());
+    $('#container_4d').height($(window).width());
+  }
+
+
+</script>
+
+
+</html>

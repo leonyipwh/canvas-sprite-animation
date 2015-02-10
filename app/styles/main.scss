@@ -11,7 +11,7 @@ $frontHeight_tv:675px;
 
 //tv2
 $tv2_marginLeft:24px;
-$tv2_marginTop:-970px;
+$tv2_marginTop:-870px;
 $height_tv2:713px;
 
 
@@ -296,13 +296,19 @@ body
 #tv2
 {
   width:100%;
-  margin-left:$tv2_marginLeft;
-  margin-top:$tv2_marginTop;
-  -webkit-transform:rotate(-90deg);
-  -moz-transform:rotate(-90deg);
-  -o-transform:rotate(-90deg);
-  -ms-transform:rotate(-90deg);
-  transform:rotate(-90deg);
+  // margin-left:$tv2_marginLeft;
+  // margin-top:$tv2_marginTop;
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+  // -webkit-transform: translateX(-100%) rotate(-90deg); /* Safari */
+  // -moz-transform:translateX(-100%)  rotate(-90deg); /* Firefox 3.6 Firefox 4 */
+  // -ms-transform:translateX(-100%) rotate(-90deg); /* IE9 */
+  // -o-transform:translateX(-100%)  rotate(-90deg); /* Opera */
+  transform:translateY(55%) rotate(-90deg); /* W3C */
+
 }
 
 #tv_preview_4d_box2
@@ -317,7 +323,7 @@ body
 
   #container_4d
   {
-    width:1100px;
+    // width:1100px;
   }
 
   .back

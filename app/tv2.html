@@ -118,7 +118,6 @@
     </div> -->
 
     <div id="tv_preview_4d_box2" class="page">
-      <br/>
       <div id="container_4d">
         <div class="back">
           <!-- <img src="images/stage.jpg" alt="" />
@@ -194,7 +193,11 @@ $( document ).ready(function() {
   function showBigSize()
   {
     $('#container_4d').width($(window).height());
-    $('#container_4d').height($(window).width());
+    // $('#container_4d').height($(window).width());
+
+    $('.back').height($(window).width()/3);
+    $('.middle').height($(window).width()/3);
+    $('.front').height($(window).width()/3);
   }
 
 

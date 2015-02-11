@@ -166,6 +166,39 @@ body
   }
 }
 
+#background
+{
+  #bgPreview
+  {
+    width:100%;
+  }
+  .bgListCon
+  {
+    padding:0px 5px 0px 5px;
+
+    .bgList
+    {
+      display:inline-block;
+      width:20%;
+      border:3px black solid;
+      color:black;
+      padding:4px;
+
+      div
+      {
+        background-color:yellow;
+        padding:15px;
+      }
+    }
+
+    .bgList.active
+    {
+      border:red 5px solid;
+    }
+  }
+
+}
+
 #photo{
   #canvasContainer
   {

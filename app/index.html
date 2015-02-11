@@ -74,7 +74,6 @@
           Next
         </div>
       </div>
-
     </div>
 
     <div id="text" class="page">
@@ -92,7 +91,7 @@
       <audio id="textMusic" preload loop>
         <source src="music/1.mp3" type="audio/mpeg">
       </audio>
-      <div class="btn sideMargin" onclick="previewVideo(this,1)">
+      <div class="btn sideMargin" onclick="previewVideo(this,0)">
         Custom copy
       </div>
       <br/>
@@ -102,12 +101,12 @@
         <br/>
         <br/>
       </div>
-      <div class="btn sideMargin" onclick="previewVideo(this,2)">
-        Copy 1
+      <div class="btn sideMargin" onclick="previewVideo(this,1)">
+        Copy 2
       </div>
       <br/>
-      <div class="btn sideMargin" onclick="previewVideo(this,3)">
-        Copy 2
+      <div class="btn sideMargin" onclick="previewVideo(this,2)">
+        Copy 3
       </div>
       <br/>
       <br/>
@@ -115,7 +114,40 @@
         <div class="btn" onclick="changePage('theme')">
           Back
         </div>
-        <div class="btn" onclick="changePage('photo')">
+        <div class="btn" onclick="changePage('background')">
+          Next
+        </div>
+      </div>
+    </div>
+
+    <div id="background" class="page">
+      <h1>Background</h1>
+      <img id="bgPreview" src="images/bg1.jpg" alt="" />
+      <br/>
+      <br/>
+      <div class="bgListCon">
+        <div class="bgList active" onclick="previewBg(this,0)">
+          <div>
+            1
+          </div>
+        </div>
+        <div class="bgList" onclick="previewBg(this,1)">
+          <div>
+            2
+          </div>
+        </div>
+        <div class="bgList" onclick="previewBg(this,2)">
+          <div>
+            3
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="buttonCon twoBtn">
+        <div class="btn" onclick="changePage('index')">
+          Home
+        </div>
+        <div class="btn" onclick="changePage('text')">
           Next
         </div>
       </div>
@@ -385,7 +417,8 @@
           'theme':theme,
           'video':video,
           'msgText':msgText,
-          'imageData':imageData
+          'imageData':imageData,
+          'bg':bg
         };
 
         changePage('preview_2d');

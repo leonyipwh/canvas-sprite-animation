@@ -3,9 +3,24 @@
 
 var theme=1;
 var imageData;
-var video;
-var customData;
+var video = 1;
 var msgText='hihi';
+var bg = 1;
+var customData;
+
+var customCopy=
+[
+  '',
+  'Copy 2',
+  'Copy 3'
+];
+
+var bgList=
+[
+  'bg1.jpg',
+  'bg2.jpg',
+  'bg3.jpg',
+];
 
 var audioPlayer = document.createElement('audio');
 audioPlayer.setAttribute('src', 'music/1.mp3');
@@ -64,26 +79,41 @@ function previewVideo(x,e)
 {
   $('#customeCopyCon').hide();
 
-  if (e===1)
+  if (e===0)
   {
     $('#customeCopyCon').show();
   }
-  else if (e===2)
+  else if (e===1)
   {
     $('#textImg').find('img').attr('src', 'images/yellowBall.gif');
-    audioPlayer.setAttribute('src', 'music/2.mp3');
-  }
-  else if (e===3)
-  {
-    $('#textImg').find('img').attr('src', 'images/redBall.gif');
     audioPlayer.setAttribute('src', 'music/1.mp3');
   }
+  else if (e===2)
+  {
+    $('#textImg').find('img').attr('src', 'images/redBall.gif');
+    audioPlayer.setAttribute('src', 'music/2.mp3');
+  }
 
+  $('#customText').html(customCopy[e]);
   video=e;
+
+  msgText = customCopy[e];
 
   audioPlayer.play();
 
   console.log('selected theme: '+ e);
+}
+
+function previewBg(x,e)
+{
+  $('.bgList').removeClass('active');
+  $(x).addClass('active');
+
+  $('#bgPreview').attr('src','images/' + bgList[e]);
+
+  bg = bgList[e];
+
+  console.log('selected bg: '+ e);
 }
 
 function build()

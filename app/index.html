@@ -20,28 +20,52 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div id="index" class="page">
+      <div id="keyVisual">
+        <img src="images/leeLogo.jpg" alt="" />
+      </div>
       <br/>
       <br/>
+      <h2>Headline</h2>
+      <p>
+      texttexttext
+      </p>
       <div id="startBtn" class="btn" onclick="changePage('theme')">
-        Start
+        Create
+      </div>
+      <br/>
+      <div id="startBtn" class="btn" onclick="">
+        Sign In
       </div>
     </div>
 
     <div id="theme" class="page">
+      <h1>ForeGround</h1>
       <img id="themePreview" src="images/man.gif" alt="" />
       <br/>
       <br/>
-      <div class="btn" onclick="previewTheme(1)">
-        theme 1
-      </div>
-      <br/>
-      <br/>
-      <div class="btn" onclick="previewTheme(2)">
-        theme 2
+      <div class="themeListCon">
+        <div class="themeList active" onclick="previewTheme(this,1)">
+          <div>
+            1
+          </div>
+        </div>
+        <div class="themeList" onclick="previewTheme(this,2)">
+          <div>
+            2
+          </div>
+        </div>
+        <div class="themeList">
+          <div>
+            3
+          </div>
+        </div>
+        <div class="themeList">
+          <div>
+            4
+          </div>
+        </div>
       </div>
 
-      <br/>
-      <br/>
       <div class="btn" onclick="changePage('text')">
         Next
       </div>

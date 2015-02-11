@@ -24,12 +24,14 @@ body
   width:100%;
   text-align:center;
   background:black;
+  color:white;
 }
+
 
 .page
 {
   margin:auto;
-  width:320px;
+  width:100%;
   display:none;
 }
 
@@ -37,6 +39,32 @@ body
 {
   background-color: yellow;
   padding:10px;
+  color:black;
+}
+
+#index
+{
+  #keyVisual
+  {
+    width:100%;
+
+    img
+    {
+      width:100%;
+    }
+  }
+
+  #startBtn
+  {
+    width:80%;
+    margin:auto;
+  }
+
+  h2,p
+  {
+    padding:0px 15px 0px 15px;
+    text-align:left;
+  }
 }
 
 #theme
@@ -45,6 +73,32 @@ body
   {
     width:100%;
     background-color:blue;
+  }
+
+  .themeListCon
+  {
+    padding:0px 15px 0px 15px;
+
+    .themeList
+    {
+      display:inline-block;
+      margin:5px;
+      width:15%;
+      border:3px black solid;
+      color:black;
+      padding:4px;
+
+      div
+      {
+        background-color:yellow;
+        padding:15px;
+      }
+    }
+
+    .themeList.active
+    {
+      border:red 5px solid;
+    }
   }
 }
 

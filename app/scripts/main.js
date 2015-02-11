@@ -30,19 +30,6 @@ function changePage(e)
   }
 }
 
-function previewTheme(e)
-{
-  if (e===1) {
-    $('#themePreview').attr('src', 'images/man.gif');
-  }else
-  {
-    $('#themePreview').attr('src', 'images/women.gif');
-  }
-
-  theme=e;
-  console.log('selected theme: '+ e);
-}
-
 
 $(window).on('hashchange', function() {
   var hash = window.location.hash.substring(1);
@@ -51,14 +38,17 @@ $(window).on('hashchange', function() {
 
 
 
-function previewTheme(e)
+function previewTheme(x,e)
 {
-  if (e===1) {
-    $('#themePreview').attr('src', 'images/man.gif');
-  }else
-  {
-    $('#themePreview').attr('src', 'images/women.gif');
-  }
+  $('.themeList').removeClass('active');
+  $(x).addClass('active');
+
+  // if (e===1) {
+  //   $('#themePreview').attr('src', 'images/man.gif');
+  // }else
+  // {
+  //   $('#themePreview').attr('src', 'images/women.gif');
+  // }
 
   theme=e;
   console.log('selected theme: '+ e);

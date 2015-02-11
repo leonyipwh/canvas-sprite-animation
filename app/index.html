@@ -66,13 +66,19 @@
         </div>
       </div>
 
-      <div class="btn" onclick="changePage('text')">
-        Next
+      <div class="buttonCon twoBtn">
+        <div class="btn" onclick="changePage('index')">
+          Home
+        </div>
+        <div class="btn" onclick="changePage('text')">
+          Next
+        </div>
       </div>
+
     </div>
 
     <div id="text" class="page">
-      <br/>
+      <h1>Midplate</h1>
       <div class="textContainer">
         <div id="customText">
           hihi
@@ -86,20 +92,32 @@
       <audio id="textMusic" preload loop>
         <source src="music/1.mp3" type="audio/mpeg">
       </audio>
-      <div class="btn" onclick="previewVideo(1)">
-        Video 1
+      <div class="btn sideMargin" onclick="previewVideo(this,1)">
+        Custom copy
       </div>
       <br/>
-      <div class="btn" onclick="previewVideo(2)">
-        Video 2
+      <div id="customeCopyCon">
+        <input id="textInput" type="text" name="" value=""></input>
+        <button onclick="updateText()">Update</button>
+        <br/>
+        <br/>
+      </div>
+      <div class="btn sideMargin" onclick="previewVideo(this,2)">
+        Copy 1
       </div>
       <br/>
-      <input id="textInput" type="text" name="" value=""></input>
-      <button onclick="updateText()">Update</button>
+      <div class="btn sideMargin" onclick="previewVideo(this,3)">
+        Copy 2
+      </div>
       <br/>
       <br/>
-      <div class="btn" onclick="changePage('photo')">
-        Next
+      <div class="buttonCon twoBtn">
+        <div class="btn" onclick="changePage('theme')">
+          Back
+        </div>
+        <div class="btn" onclick="changePage('photo')">
+          Next
+        </div>
       </div>
     </div>
 

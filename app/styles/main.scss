@@ -27,7 +27,6 @@ body
   color:white;
 }
 
-
 .page
 {
   margin:auto;
@@ -41,6 +40,34 @@ body
   padding:10px;
   color:black;
 }
+
+.btn.sideMargin
+{
+  margin:auto;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.buttonCon
+{
+  margin:0px 15px 0px 15px;
+}
+
+.buttonCon.twoBtn
+{
+  div:first-child
+  {
+    float:left;
+    width:20%;
+  }
+
+  div:last-child
+  {
+    float:right;
+    width:20%;
+  }
+}
+
 
 #index
 {
@@ -56,7 +83,7 @@ body
 
   #startBtn
   {
-    width:80%;
+    width:90%;
     margin:auto;
   }
 
@@ -66,6 +93,7 @@ body
     text-align:left;
   }
 }
+
 
 #theme
 {
@@ -77,13 +105,12 @@ body
 
   .themeListCon
   {
-    padding:0px 15px 0px 15px;
+    padding:0px 5px 0px 5px;
 
     .themeList
     {
       display:inline-block;
-      margin:5px;
-      width:15%;
+      width:20%;
       border:3px black solid;
       color:black;
       padding:4px;
@@ -106,7 +133,7 @@ body
   .textContainer
   {
     position:relative;
-    width:320px;
+    width:100%;
     height:$middleHeight;
     background-color:green;
 
@@ -131,6 +158,11 @@ body
     {
 
     }
+  }
+
+  #customeCopyCon
+  {
+    display:none;
   }
 }
 

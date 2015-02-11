@@ -43,12 +43,12 @@ function previewTheme(x,e)
   $('.themeList').removeClass('active');
   $(x).addClass('active');
 
-  // if (e===1) {
-  //   $('#themePreview').attr('src', 'images/man.gif');
-  // }else
-  // {
-  //   $('#themePreview').attr('src', 'images/women.gif');
-  // }
+  if (e===1) {
+    $('#themePreview').attr('src', 'images/man.gif');
+  }else
+  {
+    $('#themePreview').attr('src', 'images/women.gif');
+  }
 
   theme=e;
   console.log('selected theme: '+ e);
@@ -60,16 +60,23 @@ $(window).on('hashchange', function() {
 });
 
 
-function previewVideo(e)
+function previewVideo(x,e)
 {
+  $('#customeCopyCon').hide();
 
-  if (e===1) {
-    $('#textImg').find('img').attr('src', 'images/redBall.gif');
-      audioPlayer.setAttribute('src', 'music/1.mp3');
-  }else
+  if (e===1)
+  {
+    $('#customeCopyCon').show();
+  }
+  else if (e===2)
   {
     $('#textImg').find('img').attr('src', 'images/yellowBall.gif');
     audioPlayer.setAttribute('src', 'music/2.mp3');
+  }
+  else if (e===3)
+  {
+    $('#textImg').find('img').attr('src', 'images/redBall.gif');
+    audioPlayer.setAttribute('src', 'music/1.mp3');
   }
 
   video=e;

@@ -121,8 +121,6 @@ function build()
   console.log(customData);
   $('.backImage').attr('src',customData.imageData);
 
-  console.log(customData.theme);
-
   if (customData.theme === 1)
   {
     $('.frontImage').attr('src','images/man.gif');
@@ -149,4 +147,9 @@ function updateText()
   var text = $('#textInput').val();
   $('#customText').html(text);
   msgText = text;
+}
+
+function uploadPhoto()
+{
+  $('#fileUpload').click();
 }

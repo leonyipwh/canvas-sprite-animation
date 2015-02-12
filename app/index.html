@@ -147,7 +147,7 @@
         <div class="btn" onclick="changePage('index')">
           Home
         </div>
-        <div class="btn" onclick="changePage('text')">
+        <div class="btn" onclick="changePage('photo')">
           Next
         </div>
       </div>
@@ -160,7 +160,12 @@
       <input id="fileUpload" type="file" name="pic" accept="image/*" capture="camera">
       <br/>
       <br/>
-      <div class="btn" onclick="submitPhoto()">
+      <div class="btn sideMargin" onclick="uploadPhoto()">
+        Upload
+      </div>
+      <br/>
+      <br/>
+      <div class="btn sideMargin" onclick="submitPhoto()">
         Next
       </div>
     </div>
@@ -268,6 +273,7 @@
   //Photo
   var width;
   var canvasHeight;
+  var uploadedImg = false;
 
   function getSize()
   {
@@ -287,25 +293,39 @@
     var fileInput = document.getElementById('fileUpload');
     fileInput.onchange = function() {
       var file = fileInput.files[0];
-      // MegaPixImage constructor accepts File/Blob object.
-      var mpImg = new MegaPixImage(file);
 
-      // Render resized image into image element using quality option.
-      // Quality option is valid when rendering into image element.
-      // var resImg = document.getElementById('resultImage');
-      // mpImg.render(resImg, { maxWidth: 300, maxHeight: 300, quality: 0.5 });
-      //
-      // // Render resized image into canvas element.
-      // var resCanvas1 = document.getElementById('resultCanvas1');
-      // mpImg.render(resCanvas1, { maxWidth: 300, maxHeight: 300 });
+      if (typeof file === 'undefined')
+      {
+        uploadedImg=false;
+        console.log('uploaded img: '+uploadedImg);
+      }
+      else
+      {
+        uploadedImg=true;
 
-      // Render resized image into canvas element, rotating orientation = 6 (90 deg rotate right)
-      // Types of orientation is defined in EXIF specification.
-      // To detect orientation of JPEG file in JS, you can use exif.js from https://github.com/jseidelin/exif-js
-      var resCanvas2 = document.getElementById('resultCanvas2');
-      mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 1, orientation: 6 });
+        console.log('uploaded img: '+uploadedImg);
 
-      setTimeout("draw()",1000);
+        // MegaPixImage constructor accepts File/Blob object.
+        var mpImg = new MegaPixImage(file);
+
+        // Render resized image into image element using quality option.
+        // Quality option is valid when rendering into image element.
+        // var resImg = document.getElementById('resultImage');
+        // mpImg.render(resImg, { maxWidth: 300, maxHeight: 300, quality: 0.5 });
+        //
+        // // Render resized image into canvas element.
+        // var resCanvas1 = document.getElementById('resultCanvas1');
+        // mpImg.render(resCanvas1, { maxWidth: 300, maxHeight: 300 });
+
+        // Render resized image into canvas element, rotating orientation = 6 (90 deg rotate right)
+        // Types of orientation is defined in EXIF specification.
+        // To detect orientation of JPEG file in JS, you can use exif.js from https://github.com/jseidelin/exif-js
+        var resCanvas2 = document.getElementById('resultCanvas2');
+        mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 1, orientation: 6 });
+
+        setTimeout("draw()",1000);
+
+      }
     };
   };
 
@@ -405,26 +425,45 @@
 
   function submitPhoto()
   {
-    stage.toDataURL
-    ({
-      mimeType: 'image/png',
-      quality: 0.5,
-      callback: function(dataUrl)
-      {
-        imageData=dataUrl;
+    if (uploadedImg==true)
+    {
+      stage.toDataURL
+      ({
+        mimeType: 'image/png',
+        quality: 0.5,
+        callback: function(dataUrl)
+        {
 
-        customData={
-          'theme':theme,
-          'video':video,
-          'msgText':msgText,
-          'imageData':imageData,
-          'bg':bg
-        };
+          imageData=dataUrl;
 
-        changePage('preview_2d');
-        build();
-      }
-    });
+          customData={
+            'theme':theme,
+            'video':video,
+            'msgText':msgText,
+            'imageData':imageData,
+            'bg':bg
+          };
+
+          changePage('preview_2d');
+          build();
+        }
+      });
+    }
+    else
+    {
+      imageData='';
+
+      customData={
+        'theme':theme,
+        'video':video,
+        'msgText':msgText,
+        'imageData':imageData,
+        'bg':bg
+      };
+
+      changePage('preview_2d');
+      build();
+    }
   }
 
 </script>

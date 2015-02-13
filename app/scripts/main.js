@@ -118,14 +118,14 @@ function previewMid(x,e)
   if (e===0)
   {
     $('#customeCopyCon').show();
-    $('#textImg1').find('img').hide();
-    $('#textImg2').find('img').hide();
+    $('#textImg1').hide();
+    $('#textImg2').hide();
     $('#customText').html('custom text');
   }
   else
   {
-    $('#textImg1').find('img').show();
-    $('#textImg2').find('img').show();
+    $('#textImg1').show();
+    $('#textImg2').show();
     $('#textImg1').find('img').attr('src', 'images/'+ midplateFront[e]);
     $('#textImg2').find('img').attr('src', 'images/'+ midplateBack[e]);
     $('#customText').html(customCopy[e]);
@@ -158,6 +158,7 @@ function build()
   {
     $('#container_2d .backImage').attr('src', customData.imageData);
     $('#container_4d .backImage').attr('src', customData.imageData);
+    $('.backImage').show();
   }
   else
   {
@@ -175,8 +176,7 @@ function build()
   }
   else
   {
-    $('.previewBack').hide();
-    $('.previewFront').hide();
+    $('#preview_4d .video').hide();
   }
 
     $('.preview_bg').attr('src','images/'+ bgList[customData.bg]);

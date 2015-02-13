@@ -65,6 +65,29 @@
           </div>
         </div>
       </div>
+      <div class="foregroundListCon">
+        <div class="foregroundList" onclick="previewforeground(this,0)">
+          <div>
+            5
+          </div>
+        </div>
+        <div class="foregroundList" onclick="previewforeground(this,1)">
+          <div>
+            6
+          </div>
+        </div>
+        <div class="foregroundList">
+          <div>
+            7
+          </div>
+        </div>
+        <div class="foregroundList">
+          <div>
+            8
+          </div>
+        </div>
+      </div>
+      <br/>
 
       <div class="buttonCon twoBtn">
         <div class="btn" onclick="changePage('index')">
@@ -112,6 +135,14 @@
         Copy 3
       </div>
       <br/>
+      <div class="btn sideMargin" onclick="previewMid(this,3)">
+        Copy 4
+      </div>
+      <br/>
+      <div class="btn sideMargin" onclick="previewMid(this,4)">
+        Copy 5
+      </div>
+      <br/>
       <br/>
       <div class="buttonCon twoBtn">
         <div class="btn" onclick="changePage('foreground')">
@@ -157,8 +188,8 @@
       </div>
       <br/>
       <div class="buttonCon twoBtn">
-        <div class="btn" onclick="changePage('index')">
-          Home
+        <div class="btn" onclick="changePage('midplate')">
+          Back
         </div>
         <div class="btn" onclick="changePage('photo')">
           Next
@@ -191,14 +222,15 @@
       <br/>
       <div id="container_2d">
         <div class="back">
-          <img src="images/stage.jpg" alt="" />
+          <img class="preview_bg" src="images/stage.jpg" alt="" />
           <img class="backImage" src="" alt="" />
         </div>
         <div class="middle">
           <div class="previewText">
             hihi
           </div>
-          <img class="video" src="images/redBall.gif" alt="" />
+          <img class="previewFront video" src="images/redBall.gif" alt="" />
+          <img class="previewBack video" src="images/redBall.gif" alt="" />
         </div>
         <div class="front">
           <img class="frontImage" src="" alt="" />
@@ -217,14 +249,15 @@
       <br/>
       <div id="container_4d">
         <div class="back">
-          <img src="images/stage.jpg" alt="" />
+          <img class="preview_bg" src="images/stage.jpg" alt="" />
           <img class="backImage" src="" alt="" />
         </div>
         <div class="middle">
           <div class="previewText">
             hihi
           </div>
-          <img class="video" src="images/redBall.gif" alt="" />
+          <img class="previewFront video" src="images/redBall.gif" alt="" />
+          <img class="previewBack video" src="images/redBall.gif" alt="" />
         </div>
         <div class="front">
           <img class="frontImage" src="" alt="" />

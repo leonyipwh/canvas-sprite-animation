@@ -12,7 +12,9 @@ var customCopy=
 [
   '',
   'Copy 2',
-  'Copy 3'
+  'Copy 3',
+  'Copy 4',
+  'Copy 5'
 ];
 
 var bgList=
@@ -32,12 +34,16 @@ var midplateFront =
 [
   '',
   'yellowBall.gif',
+  'redBall.gif',
+  'yellowBall.gif',
   'redBall.gif'
 ];
 
 var midplateBack =
 [
   '',
+  'yellowBall.gif',
+  'redBall.gif',
   'yellowBall.gif',
   'redBall.gif'
 ];
@@ -69,7 +75,7 @@ function changePage(e)
   else if(e==='preview_2d' || e==='preview_4d')
   {
     // var audioPlayer = document.createElement('audio');
-    audioPlayer.setAttribute('src', 'music/'+ customData.video +'.mp3');
+    audioPlayer.setAttribute('src', 'music/'+ musicList[customData.foreground]);
     audioPlayer.play();
   }
 }
@@ -118,7 +124,8 @@ function previewMid(x,e)
   }
   else
   {
-    $('#textImg').find('img').show();
+    $('#textImg1').find('img').show();
+    $('#textImg2').find('img').show();
     $('#textImg1').find('img').attr('src', 'images/'+ midplateFront[e]);
     $('#textImg2').find('img').attr('src', 'images/'+ midplateBack[e]);
     $('#customText').html(customCopy[e]);
@@ -146,11 +153,33 @@ function previewBg(x,e)
 function build()
 {
   console.log(customData);
-  $('.backImage').attr('src', customData.imageData);
+
+  if (customData.imageData !== '')
+  {
+    $('#container_2d .backImage').attr('src', customData.imageData);
+    $('#container_4d .backImage').attr('src', customData.imageData);
+  }
+  else
+  {
+    $('#container_2d .backImage').hide();
+    $('#container_4d .backImage').hide();
+  }
 
   $('.frontImage').attr('src','images/'+ foregroundList[customData.foreground]);
 
-  $('.video').attr('src','images/'+ midplateFront[customData.video]);
+  if (customData.midplate !== 0)
+  {
+    $('.previewFront').attr('src','images/'+ midplateFront[customData.midplate]);
+
+    $('.previewBack').attr('src','images/'+ midplateBack[customData.midplate]);
+  }
+  else
+  {
+    $('.previewBack').hide();
+    $('.previewFront').hide();
+  }
+
+    $('.preview_bg').attr('src','images/'+ bgList[customData.bg]);
 
   $('.previewText').html(customData.msgText);
 }

@@ -112,7 +112,7 @@ body
     {
       display:inline-block;
       width:15%;
-      border:3px black solid;
+      border:5px black solid;
       color:black;
       padding:4px;
 
@@ -263,9 +263,11 @@ body
 
   #container_2d
   {
-    width:100%;
-    height:$frontHeight;
     position:relative;
+    width:100%;
+    max-width:320px;
+    margin:auto;
+    height:$frontHeight;
 
     div img
     {
@@ -277,14 +279,23 @@ body
       position:absolute;
       height:$backHeight;
       overflow: hidden;
-      bottom:0px;
+      top:0px;
     }
 
     .middle
     {
       position:absolute;
       height:$middleHeight;
+      width:100%;
       bottom:0px;
+
+      .video
+      {
+        position:absolute;
+        top:0;
+        left:0px;
+        width:100%;
+      }
     }
 
     .front
@@ -292,6 +303,7 @@ body
       height:$frontHeight;
       position:absolute;
       width:100%;
+      z-index:15;
     }
   }
 }
@@ -302,9 +314,10 @@ body
 
   #container_4d
   {
-    width:100%;
-    height:$frontHeight;
     position:relative;
+    width:320px;
+    margin:auto;
+    height:$frontHeight;
 
     div img
     {
@@ -322,6 +335,14 @@ body
     {
       position:relative;
       height:$middleHeight;
+
+      .video
+      {
+        position:absolute;
+        top:0;
+        left:0px;
+        width:100%;
+      }
     }
 
     .front
@@ -341,17 +362,20 @@ body
 
 .previewText
 {
-  position:absolute;
-  text-align:left;
+  position:relative;
+  color:red;
   left:0px;
   top:40%;
   font-size:30px;
-	-webkit-animation:10s -5s infinite alternate forwards;
-	-webkit-animation-name:textAni;
-	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-	animation:10s -5s infinite alternate forwards;
-	animation-name:textAni;
-	animation-timing-function: linear; /* Chrome, Safari, Opera */
+  width:100%;
+  text-align:left;
+  z-index:10;
+  -webkit-animation:10s -5s infinite alternate forwards;
+  -webkit-animation-name:textAni;
+  -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+  animation:10s -5s infinite alternate forwards;
+  animation-name:textAni;
+  animation-timing-function: linear; /* Chrome, Safari, Opera */
 }
 
 .backImage

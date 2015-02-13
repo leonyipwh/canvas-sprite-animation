@@ -145,7 +145,7 @@ function previewBg(x,e)
 
   $('.bgPreview').attr('src','images/' + bgList[e]);
 
-  bg = bgList[e];
+  bg = e;
 
   console.log('selected bg: '+ e);
 }

@@ -94,7 +94,7 @@
       <audio id="textMusic" preload loop>
         <source src="music/1.mp3" type="audio/mpeg">
       </audio>
-      <div class="btn sideMargin" onclick="previewVideo(this,0)">
+      <div class="btn sideMargin" onclick="previewMid(this,0)">
         Custom copy
       </div>
       <br/>
@@ -104,11 +104,11 @@
         <br/>
         <br/>
       </div>
-      <div class="btn sideMargin" onclick="previewVideo(this,1)">
+      <div class="btn sideMargin" onclick="previewMid(this,1)">
         Copy 2
       </div>
       <br/>
-      <div class="btn sideMargin" onclick="previewVideo(this,2)">
+      <div class="btn sideMargin" onclick="previewMid(this,2)">
         Copy 3
       </div>
       <br/>
@@ -144,6 +144,16 @@
             3
           </div>
         </div>
+        <div class="bgList" onclick="previewBg(this,2)">
+          <div>
+            4
+          </div>
+        </div>
+        <div class="bgList" onclick="previewBg(this,2)">
+          <div>
+            5
+          </div>
+        </div>
       </div>
       <br/>
       <div class="buttonCon twoBtn">
@@ -158,7 +168,7 @@
 
     <div id="photo" class="page">
       <h1>Background</h1>
-      <div id="PhotoPreviewCon">
+      <div id="photoPreviewCon">
         <canvas id="resultCanvas2"></canvas>
         <div id="canvasContainer"></div>
         <img class="bgPreview" src="images/bg1.jpg"/>
@@ -284,65 +294,15 @@
 
   function getSize()
   {
-    // width = $(window).width();
-    // console.log("window width= "+width);
-    // canvasWidth = $(window).width();
-    // height = $(window).height();
-
-    width = 250;
-    // console.log("window width= "+width);
-    canvasWidth = 250;
-    height = 250;
-    canvasHeight = 250;
+    width = canvasWidth = height = canvasHeight = $('#photoPreviewCon').width()*0.7;
   }
-
-  window.onload = function() {
-    var fileInput = document.getElementById('fileUpload');
-    fileInput.onchange = function() {
-      var file = fileInput.files[0];
-
-      if (typeof file === 'undefined')
-      {
-        uploadedImg=false;
-        console.log('uploaded img: '+uploadedImg);
-      }
-      else
-      {
-        uploadedImg=true;
-
-        console.log('uploaded img: '+uploadedImg);
-
-        // MegaPixImage constructor accepts File/Blob object.
-        var mpImg = new MegaPixImage(file);
-
-        // Render resized image into image element using quality option.
-        // Quality option is valid when rendering into image element.
-        // var resImg = document.getElementById('resultImage');
-        // mpImg.render(resImg, { maxWidth: 300, maxHeight: 300, quality: 0.5 });
-        //
-        // // Render resized image into canvas element.
-        // var resCanvas1 = document.getElementById('resultCanvas1');
-        // mpImg.render(resCanvas1, { maxWidth: 300, maxHeight: 300 });
-
-        // Render resized image into canvas element, rotating orientation = 6 (90 deg rotate right)
-        // Types of orientation is defined in EXIF specification.
-        // To detect orientation of JPEG file in JS, you can use exif.js from https://github.com/jseidelin/exif-js
-        var resCanvas2 = document.getElementById('resultCanvas2');
-        $('#resultCanvas2').show();
-        mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 1, orientation: 6 });
-
-        setTimeout("draw()",1000);
-
-      }
-    };
-  };
 
   //kinetic.js
   var stage = new Kinetic.Stage
   ({
     container: 'canvasContainer',
-    width: 250,
-    height: 250
+    width: canvasWidth,
+    height: canvasWidth
   });
 
   var layer = new Kinetic.Layer();
@@ -351,6 +311,47 @@
   {
     layer.destroy();
   });
+
+    window.onload = function() {
+      var fileInput = document.getElementById('fileUpload');
+      fileInput.onchange = function() {
+        var file = fileInput.files[0];
+
+        if (typeof file === 'undefined')
+        {
+          uploadedImg=false;
+          console.log('uploaded img: '+uploadedImg);
+        }
+        else
+        {
+          uploadedImg=true;
+
+          console.log('uploaded img: '+uploadedImg);
+
+          // MegaPixImage constructor accepts File/Blob object.
+          var mpImg = new MegaPixImage(file);
+
+          // Render resized image into image element using quality option.
+          // Quality option is valid when rendering into image element.
+          // var resImg = document.getElementById('resultImage');
+          // mpImg.render(resImg, { maxWidth: 300, maxHeight: 300, quality: 0.5 });
+          //
+          // // Render resized image into canvas element.
+          // var resCanvas1 = document.getElementById('resultCanvas1');
+          // mpImg.render(resCanvas1, { maxWidth: 300, maxHeight: 300 });
+
+          // Render resized image into canvas element, rotating orientation = 6 (90 deg rotate right)
+          // Types of orientation is defined in EXIF specification.
+          // To detect orientation of JPEG file in JS, you can use exif.js from https://github.com/jseidelin/exif-js
+          var resCanvas2 = document.getElementById('resultCanvas2');
+          $('#resultCanvas2').show();
+          mpImg.render(resCanvas2, {maxWidth: canvasWidth, maxHeight: canvasWidth, quality: 1, orientation: 6 });
+
+          setTimeout("draw()",1000);
+
+        }
+      };
+    };
 
   function draw()
   {
@@ -446,7 +447,7 @@
 
           customData={
             'foreground':foreground,
-            'video':video,
+            'midplate':midplate,
             'msgText':msgText,
             'imageData':imageData,
             'bg':bg
@@ -463,7 +464,7 @@
 
       customData={
         'foreground':foreground,
-        'video':video,
+        'midplate':midplate,
         'msgText':msgText,
         'imageData':imageData,
         'bg':bg

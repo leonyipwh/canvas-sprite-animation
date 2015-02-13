@@ -182,16 +182,18 @@ body
   .bgPreview
   {
     width:100%;
+    max-width:320px;
   }
   .bgListCon
   {
     padding:0px 5px 0px 5px;
+    position:relative;
 
     .bgList
     {
       display:inline-block;
-      width:20%;
-      border:3px black solid;
+      width:25%;
+      border:5px black solid;
       color:black;
       padding:4px;
 
@@ -221,11 +223,13 @@ body
 
   }
 
-  #PhotoPreviewCon
+  #photoPreviewCon
   {
     position:relative;
     width:100%;
     height:auto;
+    max-width:320px;
+    margin:auto;
 
     .bgPreview
     {
@@ -245,8 +249,8 @@ body
     #canvasContainer
     {
       position:absolute;
-      width:250px;
-      height:250px;
+      // width:250px;
+      // height:250px;
       margin:auto;
       z-index:10;
     }

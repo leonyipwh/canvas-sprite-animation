@@ -3,7 +3,7 @@
 
 var foreground=0;
 var imageData;
-var video = 0;
+var midplate = 0;
 var msgText='hihi';
 var bg = 0;
 var customData;
@@ -105,7 +105,7 @@ $(window).on('hashchange', function() {
 });
 
 
-function previewVideo(x,e)
+function previewMid(x,e)
 {
   $('#customeCopyCon').hide();
 
@@ -124,7 +124,7 @@ function previewVideo(x,e)
     $('#customText').html(customCopy[e]);
   }
 
-  video=e;
+  midplate=e;
 
   msgText = customCopy[e];
 

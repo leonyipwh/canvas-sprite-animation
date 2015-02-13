@@ -32,6 +32,7 @@ body
   margin:auto;
   width:100%;
   display:none;
+  // max-width:320px;
 }
 
 .btn
@@ -95,22 +96,22 @@ body
 }
 
 
-#theme
+#foreground
 {
-  #themePreview
+  #foregroundPreview
   {
     width:100%;
     background-color:blue;
   }
 
-  .themeListCon
+  .foregroundListCon
   {
     padding:0px 5px 0px 5px;
 
-    .themeList
+    .foregroundList
     {
       display:inline-block;
-      width:20%;
+      width:15%;
       border:3px black solid;
       color:black;
       padding:4px;
@@ -122,18 +123,20 @@ body
       }
     }
 
-    .themeList.active
+    .foregroundList.active
     {
       border:red 5px solid;
     }
   }
 }
 
-#text{
+#midplate{
   .textContainer
   {
     position:relative;
     width:100%;
+    max-width:320px;
+    margin:auto;
     height:$middleHeight;
     background-color:green;
 
@@ -146,6 +149,7 @@ body
       font-size:30px;
       width:auto;
       text-align:left;
+      z-index:10;
     	-webkit-animation:10s -5s infinite alternate forwards;
     	-webkit-animation-name:textAni;
     	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
@@ -154,9 +158,16 @@ body
     	animation-timing-function: linear; /* Chrome, Safari, Opera */
     }
 
-    #textImg
+    #textImg1
     {
+      position:absolute;
+      z-index:5;
+    }
 
+    #textImg2
+    {
+      position:absolute;
+      z-index:15;
     }
   }
 
@@ -168,7 +179,7 @@ body
 
 #background
 {
-  #bgPreview
+  .bgPreview
   {
     width:100%;
   }
@@ -209,16 +220,36 @@ body
   {
 
   }
-  #resultCanvas2
+
+  #PhotoPreviewCon
   {
-    border:1px solid white;
-    display:none;
-  }
-  #canvasContainer
-  {
-    width:250px;
-    height:250px;
-    margin:auto;
+    position:relative;
+    width:100%;
+    height:auto;
+
+    .bgPreview
+    {
+      position:relative;
+      width:100%;
+      top:0px;
+      left:0px;
+    }
+
+    #resultCanvas2
+    {
+      position:absolute;
+      border:1px solid white;
+      display:none;
+    }
+
+    #canvasContainer
+    {
+      position:absolute;
+      width:250px;
+      height:250px;
+      margin:auto;
+      z-index:10;
+    }
   }
 }
 
@@ -405,12 +436,6 @@ body
     transform: scaleY(-1);
   }
 
-
-  .page
-  {
-    width:100%;
-  }
-
   .frontImage
   {
     // width:100%;
@@ -498,11 +523,6 @@ body
     transform: scaleY(-1);
   }
 
-
-  .page
-  {
-    width:100%;
-  }
 
   .frontImage
   {

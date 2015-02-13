@@ -1,11 +1,11 @@
 //big tv height: 1080
 //width 1920
 
-var theme=1;
+var foreground=0;
 var imageData;
-var video = 1;
+var video = 0;
 var msgText='hihi';
-var bg = 1;
+var bg = 0;
 var customData;
 
 var customCopy=
@@ -19,8 +19,37 @@ var bgList=
 [
   'bg1.jpg',
   'bg2.jpg',
-  'bg3.jpg',
+  'bg3.jpg'
 ];
+
+var foregroundList=
+[
+  'man.gif',
+  'women.gif'
+];
+
+var midplateFront =
+[
+  '',
+  'yellowBall.gif',
+  'redBall.gif'
+];
+
+var midplateBack =
+[
+  '',
+  'yellowBall.gif',
+  'redBall.gif'
+];
+
+var musicList=
+[
+  '1.mp3',
+  '2.mp3',
+  '2.mp3'
+];
+
+
 
 var audioPlayer = document.createElement('audio');
 audioPlayer.setAttribute('src', 'music/1.mp3');
@@ -33,7 +62,7 @@ function changePage(e)
 
   audioPlayer.pause();
 
-  if (e==='text')
+  if (e==='foreground')
   {
     audioPlayer.play();
   }
@@ -53,20 +82,21 @@ $(window).on('hashchange', function() {
 
 
 
-function previewTheme(x,e)
+function previewforeground(x,e)
 {
-  $('.themeList').removeClass('active');
+  $('.foregroundList').removeClass('active');
   $(x).addClass('active');
 
-  if (e===1) {
-    $('#themePreview').attr('src', 'images/man.gif');
-  }else
-  {
-    $('#themePreview').attr('src', 'images/women.gif');
-  }
+  $('#foregroundPreview').attr('src', 'images/'+foregroundList[e]);
 
-  theme=e;
-  console.log('selected theme: '+ e);
+  //music player
+  audioPlayer.pause();
+  audioPlayer.setAttribute('src', 'music/'+ musicList[e]);
+  audioPlayer.play();
+
+  foreground=foregroundList[e];
+
+  console.log('selected foreground: '+ e);
 }
 
 $(window).on('hashchange', function() {
@@ -82,26 +112,23 @@ function previewVideo(x,e)
   if (e===0)
   {
     $('#customeCopyCon').show();
+    $('#textImg1').find('img').hide();
+    $('#textImg2').find('img').hide();
+    $('#customText').html('custom text');
   }
-  else if (e===1)
+  else
   {
-    $('#textImg').find('img').attr('src', 'images/yellowBall.gif');
-    audioPlayer.setAttribute('src', 'music/1.mp3');
-  }
-  else if (e===2)
-  {
-    $('#textImg').find('img').attr('src', 'images/redBall.gif');
-    audioPlayer.setAttribute('src', 'music/2.mp3');
+    $('#textImg').find('img').show();
+    $('#textImg1').find('img').attr('src', 'images/'+ midplateFront[e]);
+    $('#textImg2').find('img').attr('src', 'images/'+ midplateBack[e]);
+    $('#customText').html(customCopy[e]);
   }
 
-  $('#customText').html(customCopy[e]);
   video=e;
 
   msgText = customCopy[e];
 
-  audioPlayer.play();
-
-  console.log('selected theme: '+ e);
+  console.log('selected foreground: '+ e);
 }
 
 function previewBg(x,e)
@@ -109,7 +136,7 @@ function previewBg(x,e)
   $('.bgList').removeClass('active');
   $(x).addClass('active');
 
-  $('#bgPreview').attr('src','images/' + bgList[e]);
+  $('.bgPreview').attr('src','images/' + bgList[e]);
 
   bg = bgList[e];
 
@@ -119,25 +146,11 @@ function previewBg(x,e)
 function build()
 {
   console.log(customData);
-  $('.backImage').attr('src',customData.imageData);
+  $('.backImage').attr('src', customData.imageData);
 
-  if (customData.theme === 1)
-  {
-    $('.frontImage').attr('src','images/man.gif');
-  }
-  else
-  {
-    $('.frontImage').attr('src','images/women.gif');
-  }
+  $('.frontImage').attr('src','images/'+ foregroundList[customData.foreground]);
 
-  if (customData.video === 1)
-  {
-    $('.video').attr('src','images/redBall.gif');
-  }
-  else
-  {
-    $('.video').attr('src','images/yellowBall.gif');
-  }
+  $('.video').attr('src','images/'+ midplateFront[customData.video]);
 
   $('.previewText').html(customData.msgText);
 }

@@ -29,7 +29,7 @@
       <p>
       texttexttext
       </p>
-      <div id="startBtn" class="btn" onclick="changePage('theme')">
+      <div id="startBtn" class="btn" onclick="changePage('foreground')">
         Create
       </div>
       <br/>
@@ -38,28 +38,28 @@
       </div>
     </div>
 
-    <div id="theme" class="page">
+    <div id="foreground" class="page">
       <h1>ForeGround</h1>
-      <img id="themePreview" src="images/man.gif" alt="" />
+      <img id="foregroundPreview" src="images/man.gif" alt="" />
       <br/>
       <br/>
-      <div class="themeListCon">
-        <div class="themeList active" onclick="previewTheme(this,1)">
+      <div class="foregroundListCon">
+        <div class="foregroundList active" onclick="previewforeground(this,0)">
           <div>
             1
           </div>
         </div>
-        <div class="themeList" onclick="previewTheme(this,2)">
+        <div class="foregroundList" onclick="previewforeground(this,1)">
           <div>
             2
           </div>
         </div>
-        <div class="themeList">
+        <div class="foregroundList">
           <div>
             3
           </div>
         </div>
-        <div class="themeList">
+        <div class="foregroundList">
           <div>
             4
           </div>
@@ -70,19 +70,22 @@
         <div class="btn" onclick="changePage('index')">
           Home
         </div>
-        <div class="btn" onclick="changePage('text')">
+        <div class="btn" onclick="changePage('midplate')">
           Next
         </div>
       </div>
     </div>
 
-    <div id="text" class="page">
+    <div id="midplate" class="page">
       <h1>Midplate</h1>
       <div class="textContainer">
         <div id="customText">
           hihi
         </div>
-        <div id="textImg">
+        <div id="textImg1">
+          <img src="images/redBall.gif" alt="" />
+        </div>
+        <div id="textImg2">
           <img src="images/redBall.gif" alt="" />
         </div>
       </div>
@@ -111,7 +114,7 @@
       <br/>
       <br/>
       <div class="buttonCon twoBtn">
-        <div class="btn" onclick="changePage('theme')">
+        <div class="btn" onclick="changePage('foreground')">
           Back
         </div>
         <div class="btn" onclick="changePage('background')">
@@ -122,7 +125,7 @@
 
     <div id="background" class="page">
       <h1>Background</h1>
-      <img id="bgPreview" src="images/bg1.jpg" alt="" />
+      <img class="bgPreview" src="images/bg1.jpg" alt="" />
       <br/>
       <br/>
       <div class="bgListCon">
@@ -154,9 +157,13 @@
     </div>
 
     <div id="photo" class="page">
-      <br/>
-      <canvas id="resultCanvas2"></canvas>
-      <div id="canvasContainer"></div>
+      <h1>Background</h1>
+      <div id="PhotoPreviewCon">
+        <canvas id="resultCanvas2"></canvas>
+        <div id="canvasContainer"></div>
+        <img class="bgPreview" src="images/bg1.jpg"/>
+      </div>
+
       <input id="fileUpload" type="file" name="pic" accept="image/*" capture="camera">
       <br/>
       <br/>
@@ -321,6 +328,7 @@
         // Types of orientation is defined in EXIF specification.
         // To detect orientation of JPEG file in JS, you can use exif.js from https://github.com/jseidelin/exif-js
         var resCanvas2 = document.getElementById('resultCanvas2');
+        $('#resultCanvas2').show();
         mpImg.render(resCanvas2, {maxWidth: 1000, maxHeight: 1000, quality: 1, orientation: 6 });
 
         setTimeout("draw()",1000);
@@ -437,7 +445,7 @@
           imageData=dataUrl;
 
           customData={
-            'theme':theme,
+            'foreground':foreground,
             'video':video,
             'msgText':msgText,
             'imageData':imageData,
@@ -454,7 +462,7 @@
       imageData='';
 
       customData={
-        'theme':theme,
+        'foreground':foreground,
         'video':video,
         'msgText':msgText,
         'imageData':imageData,

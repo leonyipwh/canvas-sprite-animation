@@ -147,6 +147,8 @@ function previewBg(x,e)
 
   bg = e;
 
+
+
   console.log('selected bg: '+ e);
 }
 
@@ -194,4 +196,14 @@ function updateText()
 function uploadPhoto()
 {
   $('#fileUpload').click();
+}
+
+function showTerms()
+{
+  $('#terms').show();
+}
+
+function hideTerms()
+{
+  $('#terms').hide();
 }

@@ -19,12 +19,24 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div id="terms" class="page">
+      <h1>Terms and conditions</h1>
+      </br>
+      <p class="sideMargin">
+        terms 1
+      </p>
+      </br>
+      <div class="btn sideMargin" onclick="hideTerms()">
+        Back
+      </div>
+    </div>
+
     <div id="index" class="page">
       <div id="keyVisual">
         <img src="images/leeLogo.jpg" alt="" />
       </div>
-      <br/>
-      <br/>
+      </br>
+      </br>
       <h2>Headline</h2>
       <p>
       texttexttext
@@ -32,17 +44,21 @@
       <div id="startBtn" class="btn" onclick="changePage('foreground')">
         Create
       </div>
-      <br/>
+      </br>
       <div id="startBtn" class="btn" onclick="">
         Sign In
+      </div>
+      </br>
+      <div class="termsBtn" onclick="showTerms()">
+        Terms and condition
       </div>
     </div>
 
     <div id="foreground" class="page">
       <h1>ForeGround</h1>
       <img id="foregroundPreview" src="images/man.gif" alt="" />
-      <br/>
-      <br/>
+      </br>
+      </br>
       <div class="foregroundListCon">
         <div class="foregroundList active" onclick="previewforeground(this,0)">
           <div>
@@ -87,7 +103,7 @@
           </div>
         </div>
       </div>
-      <br/>
+      </br>
 
       <div class="buttonCon twoBtn">
         <div class="btn" onclick="changePage('index')">
@@ -112,38 +128,38 @@
           <img src="images/redBall.gif" alt="" />
         </div>
       </div>
-      <br/>
-      <br/>
+      </br>
+      </br>
       <audio id="textMusic" preload loop>
         <source src="music/1.mp3" type="audio/mpeg">
       </audio>
       <div class="btn sideMargin" onclick="previewMid(this,0)">
         Custom copy
       </div>
-      <br/>
+      </br>
       <div id="customeCopyCon">
         <input id="textInput" type="text" name="" value=""></input>
         <button onclick="updateText()">Update</button>
-        <br/>
-        <br/>
+        </br>
+        </br>
       </div>
       <div class="btn sideMargin" onclick="previewMid(this,1)">
         Copy 2
       </div>
-      <br/>
+      </br>
       <div class="btn sideMargin" onclick="previewMid(this,2)">
         Copy 3
       </div>
-      <br/>
+      </br>
       <div class="btn sideMargin" onclick="previewMid(this,3)">
         Copy 4
       </div>
-      <br/>
+      </br>
       <div class="btn sideMargin" onclick="previewMid(this,4)">
         Copy 5
       </div>
-      <br/>
-      <br/>
+      </br>
+      </br>
       <div class="buttonCon twoBtn">
         <div class="btn" onclick="changePage('foreground')">
           Back
@@ -157,8 +173,8 @@
     <div id="background" class="page">
       <h1>Background</h1>
       <img class="bgPreview" src="images/bg1.jpg" alt="" />
-      <br/>
-      <br/>
+      </br>
+      </br>
       <div class="bgListCon">
         <div class="bgList active" onclick="previewBg(this,0)">
           <div>
@@ -186,7 +202,7 @@
           </div>
         </div>
       </div>
-      <br/>
+      </br>
       <div class="buttonCon twoBtn">
         <div class="btn" onclick="changePage('midplate')">
           Back
@@ -206,20 +222,20 @@
       </div>
 
       <input id="fileUpload" type="file" name="pic" accept="image/*" capture="camera">
-      <br/>
-      <br/>
+      </br>
+      </br>
       <div class="btn sideMargin" onclick="uploadPhoto()">
         Upload
       </div>
-      <br/>
-      <br/>
+      </br>
+      </br>
       <div class="btn sideMargin" onclick="submitPhoto()">
         Next
       </div>
     </div>
 
     <div id="preview_2d" class="page">
-      <br/>
+      </br>
       <div id="container_2d">
         <div class="back">
           <img class="preview_bg" src="images/stage.jpg" alt="" />
@@ -236,17 +252,17 @@
           <img class="frontImage" src="" alt="" />
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      </br>
+      </br>
+      </br>
+      </br>
       <div class="btn" onclick="changePage('preview_4d')">
         4D Version
       </div>
     </div>
 
     <div id="preview_4d" class="page">
-      <br/>
+      </br>
       <div id="container_4d">
         <div class="back">
           <img class="preview_bg" src="images/stage.jpg" alt="" />
@@ -263,11 +279,12 @@
           <img class="frontImage" src="" alt="" />
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      </br>
+      </br>
+      </br>
+      </br>
     </div>
+
 
 
     <!-- build:js(.) scripts/vendor.js -->

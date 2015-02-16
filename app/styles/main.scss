@@ -15,7 +15,6 @@ $tv2_marginTop:-870px;
 $height_tv2:713px;
 
 
-
 //Content
 body
 {
@@ -25,6 +24,7 @@ body
   text-align:center;
   background:black;
   color:white;
+  font-size:10px;
 }
 
 .page
@@ -32,7 +32,17 @@ body
   margin:auto;
   width:100%;
   display:none;
-  // max-width:320px;
+  font-size:1.8em;
+
+  .termsBtn
+  {
+
+  }
+}
+
+h1
+{
+  font-size:1.5em;
 }
 
 .btn
@@ -146,7 +156,7 @@ body
       color:red;
       left:0px;
       top:40%;
-      font-size:30px;
+      font-size:2em;
       width:auto;
       text-align:left;
       z-index:10;
@@ -370,8 +380,8 @@ body
   color:red;
   left:0px;
   top:40%;
-  font-size:30px;
   width:100%;
+  font-size:2em;
   text-align:left;
   z-index:10;
   -webkit-animation:10s -5s infinite alternate forwards;
@@ -544,11 +554,6 @@ body
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
 
-    .previewText
-    {
-      font-size:100px;
-    }
-
     .video
     {
       width:100%;
@@ -568,6 +573,24 @@ body
   .frontImage
   {
     // width:100%;
+  }
+}
+
+#terms
+{
+  position:fixed;
+  background-color:black;
+  width:100%;
+  height:100%;
+  padding:0px 5px 5px 5px;
+  color:white;
+  z-index:20;
+  display:none;
+
+  p
+  {
+    font-size:1.2em;
+    text-align:left;
   }
 }
 

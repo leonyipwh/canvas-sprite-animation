@@ -203,7 +203,7 @@ function showTerms()
   $('#terms').show();
 }
 
-function hideTerms()
+function hideOverlay()
 {
-  $('#terms').hide();
+  $('.overlay').hide();
 }

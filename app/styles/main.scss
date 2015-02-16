@@ -594,6 +594,16 @@ h1
   }
 }
 
+#sharePopUp
+{
+  position:fixed;
+  background-color:black;
+  width:100%;
+  height:100%;
+  z-index:20;
+  display:none;
+}
+
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes textAni {

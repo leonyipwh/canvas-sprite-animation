@@ -604,6 +604,25 @@ h1
   display:none;
 }
 
+#gallery
+{
+  #thumbContainer
+  {
+    width:95%;
+    margin:auto;
+    text-align:left;
+
+    .thumb
+    {
+      display:inline-block;
+      margin:5px;
+      width:45%;
+      height:100px;
+      background:blue;
+    }
+  }
+}
+
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes textAni {

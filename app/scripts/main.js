@@ -100,7 +100,7 @@ function previewforeground(x,e)
   audioPlayer.setAttribute('src', 'music/'+ musicList[e]);
   audioPlayer.play();
 
-  foreground=foregroundList[e];
+  foreground=e;
 
   console.log('selected foreground: '+ e);
 }
